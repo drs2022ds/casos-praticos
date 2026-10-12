@@ -1,7 +1,7 @@
-// Servidor local: node server.js  (http://localhost:3000)
+// Servidor local: node lib/devserver.js  (http://localhost:3000)
 const http = require("http"), fs = require("fs"), path = require("path");
-const { handle } = require("./lib/app");
-const PUB = path.join(__dirname, "public");
+const { handle } = require("./app");
+const PUB = path.join(__dirname, "..", "public");
 const MIME = { ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".svg": "image/svg+xml", ".ico": "image/x-icon" };
 const server = http.createServer((req, res) => {
   const p = new URL(req.url, "http://x").pathname;

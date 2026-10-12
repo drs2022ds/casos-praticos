@@ -4,7 +4,7 @@
   "private": true,
   "description": "Plataforma de casos práticos: o aluno escreve a nota, só depois vê o trabalho do Claude e compara com a sala.",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "node lib/devserver.js",
     "test": "node test/e2e.test.js"
   },
   "engines": { "node": ">=20" },

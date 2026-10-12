@@ -1,7 +1,7 @@
 process.env.PGLITE_DIR = "memory://";
 process.env.TRAINER_KEY = "segredo-teste";
 const assert = require("assert");
-const server = require("../server");
+const server = require("../lib/devserver");
 const C = require("../lib/cases");
 
 let base; const T = () => crypto.randomUUID();
