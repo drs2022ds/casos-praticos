@@ -1,0 +1,12 @@
+<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Casos práticos</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap">
+<header class="head"><span class="eyebrow">Formação em IA generativa para advogados · Abreu Advogados</span><h1>Casos práticos</h1>
+<p class="lead">Leia o dossier, escreva a sua nota e só depois veja a análise do Claude e as notas dos outros grupos. Os casos são inteiramente fictícios. Não carregue dados reais ou confidenciais.</p></header>
+<div class="cases" id="cases"><p class="empty">A carregar…</p></div>
+<p class="foot"><a href="/formador">Área do formador</a></p>
+</div>
+<script src="/common.js"></script>
+<script>
+api("/api/casos").then(list=>{const r=$("#cases");r.textContent="";list.forEach(c=>{const a=el("a","card");a.href="/caso?c="+c.id;
+a.append(el("span","eyebrow",c.papel+" · mínimo "+c.minChars+" caracteres"),el("h2",null,c.titulo),el("p","note",c.subtitulo),el("span","note","Abrir o caso →"));r.append(a)})}).catch(()=>{$("#cases").textContent="Não foi possível carregar os casos."});
+</script></body></html>

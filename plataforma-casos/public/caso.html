@@ -1,0 +1,92 @@
+<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Caso prático</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap" id="app"><p class="empty">A carregar…</p></div>
+<script src="/common.js"></script>
+<script>
+"use strict";
+const id=new URLSearchParams(location.search).get("c")||"";
+const TK="tok-"+id, GK="grupo-"+id;
+let token=store.get(TK);if(!token){token=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random().toString(16).slice(2)+"abcdef0123456789");store.set(TK,token)}
+const app=$("#app");let C=null,poll=null;
+
+const norm=s=>String(s||"").replace(/\r\n?/g,"\n").replace(/[ \t]+/g," ").replace(/\n{3,}/g,"\n\n").trim();
+
+async function boot(){
+  try{C=await api("/api/caso/"+encodeURIComponent(id))}catch(e){app.textContent="";app.append(el("p","status err","Caso desconhecido."),Object.assign(el("a",null,"Voltar aos casos"),{href:"/"}));return}
+  document.title=C.titulo;
+  try{const r=await api("/api/caso/"+id+"/revelar",{method:"POST",body:{token}});return showReveal(r)}catch(e){if(e.status!==403)console.error(e)}
+  showWrite();
+}
+
+function header(){
+  const h=el("header","head");
+  const tb=el("div","topbar");tb.append(el("span",null,"Formação em IA generativa para advogados · Caso inteiramente fictício"));const a=el("a",null,"← Casos");a.href="/";tb.append(a);
+  h.append(tb,el("h1",null,C.titulo),el("p","lead",C.subtitulo));return h;
+}
+
+function showWrite(){
+  app.textContent="";app.append(header());
+  const d=el("div","wrap");d.style.gap="20px";
+  const intro=el("section","card doc");intro.append(el("span","eyebrow","Dossier"),el("p","brief",C.intro));
+  const cp=el("button","ghost small","Copiar o dossier para a IA");cp.type="button";cp.style.alignSelf="flex-start";intro.append(cp);
+  d.append(intro);
+  const dos=el("div","wrap");dos.style.gap="20px";dos.innerHTML=C.dossierHtml;d.append(dos);
+  cp.onclick=async()=>{const txt=[C.intro,...[...dos.querySelectorAll("section")].map(s=>s.innerText.replace(/\n{3,}/g,"\n\n")),"Questão\n"+C.questao].join("\n\n");
+    try{await navigator.clipboard.writeText(txt);cp.textContent="Copiado";setTimeout(()=>cp.textContent="Copiar o dossier para a IA",1600)}catch{const ta=document.createElement("textarea");ta.value=txt;ta.readOnly=true;ta.style.minHeight="120px";intro.append(ta);ta.select()}};
+  const q=el("section","question");q.append(el("span","eyebrow","Questão"),el("p",null,C.questao));d.append(q);
+
+  const f=el("section","card");f.id="nota";
+  f.append(el("span","eyebrow",C.papel+" · para: "+C.destinatario),el("h2",null,"A sua nota"),el("p","note",C.instrucaoNota));
+  const g=el("div","field");const gl=el("label",null,"Grupo");gl.htmlFor="grupo";const gi=document.createElement("input");gi.type="text";gi.id="grupo";gi.placeholder="Ex.: Grupo 3";gi.autocomplete="off";gi.maxLength=60;gi.value=store.get(GK)||"";g.append(gl,gi);f.append(g);
+  const nl=el("div","field");const nlab=el("label",null,"Nota");nlab.htmlFor="nota-txt";const ta=document.createElement("textarea");ta.id="nota-txt";ta.placeholder=C.placeholder;ta.value=store.get("rascunho-"+id)||"";nl.append(nlab,ta);f.append(nl);
+  const ct=el("div","counter");const meter=el("div","meter");meter.append(document.createElement("i"));const hint=el("span","hint");ct.append(meter,hint);f.append(ct);
+  f.append(Object.assign(el("div","lock"),{innerHTML:"<span>🔒</span><span>A análise do Claude, a nota modelo e as notas dos outros grupos ficam bloqueadas até entregar a sua nota. Depois de revelada, a nota já não pode ser alterada.</span>"}));
+  const act=el("div","actions");const sb=el("button","primary","Entregar e ver a análise do Claude");sb.type="button";const stt=el("span","status");stt.setAttribute("role","status");act.append(sb,stt);f.append(act);
+  d.append(f);app.append(d);app.append(el("p","foot","Formação em IA generativa para advogados · Caso inteiramente fictício"));
+
+  const upd=()=>{const n=norm(ta.value).length;const ok=n>=C.minChars&&n<=C.maxChars;
+    meter.className="meter"+(n>C.maxChars?" over":ok?" ok":"");meter.firstChild.style.width=Math.min(100,n/C.minChars*100)+"%";
+    hint.className="hint"+(n>C.maxChars?" over":ok?" ok":"");
+    hint.textContent=n>C.maxChars?n+" caracteres · máximo "+C.maxChars+", seja mais curto":n>=C.minChars?n+" caracteres · pode entregar":n+" / "+C.minChars+" caracteres mínimos";
+    sb.disabled=!(ok&&gi.value.trim());store.set("rascunho-"+id,ta.value)};
+  ta.oninput=upd;gi.oninput=()=>{store.set(GK,gi.value);upd()};upd();
+  sb.onclick=async()=>{sb.disabled=true;stt.className="status";stt.textContent="A entregar…";
+    try{await api("/api/caso/"+id+"/nota",{method:"POST",body:{token,grupo:gi.value,nota:ta.value}});
+      const r=await api("/api/caso/"+id+"/revelar",{method:"POST",body:{token}});store.set("rascunho-"+id,"");showReveal(r);window.scrollTo(0,0)}
+    catch(e){stt.className="status err";stt.textContent=e.status===409?e.message:e.status?e.message:"Sem ligação. Tente de novo.";upd()}};
+}
+
+function showReveal(r){
+  app.textContent="";app.append(header());
+  const tabs=el("nav","tabs");tabs.setAttribute("role","tablist");
+  const T=[["claude","A análise do Claude"],["minha","A minha nota"],["sala","A sala"]];
+  const views={};const main=el("div","wrap");main.style.gap="20px";
+  T.forEach(([k,t],i)=>{const b=el("button",null,t);b.type="button";b.setAttribute("role","tab");b.setAttribute("aria-selected",String(i===0));b.onclick=()=>go(k);tabs.append(b);b.dataset.k=k;
+    const v=el("div","wrap");v.style.gap="20px";v.hidden=i!==0;views[k]=v;main.append(v)});
+  app.append(tabs,main,el("p","foot","Formação em IA generativa para advogados · Caso inteiramente fictício"));
+  function go(k){tabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",String(b.dataset.k===k)));Object.entries(views).forEach(([n,v])=>v.hidden=n!==k);window.scrollTo(0,0);if(k==="sala")loadSala();else clearInterval(poll)}
+
+  // 1. Claude
+  const R=r.reveal;const c1=el("section","card");c1.append(el("span","banner","Só depois de entregar a sua nota"),el("h2",null,R.titulo),el("p","note",R.aviso));
+  R.sections.forEach(s=>{const x=el("div","sec");x.append(el("h3",null,s.titulo));(s.paragrafos||[]).forEach(p=>x.append(el("p",null,p)));if(s.itens){const u=el("ul");s.itens.forEach(i=>u.append(el("li",null,i)));x.append(u)}c1.append(x)});
+  views.claude.append(c1);
+
+  // 2. A minha nota vs modelo
+  const c2=el("section","card");c2.append(el("h2",null,"A sua nota e a nota modelo"));
+  const cols=el("div","cols");const a=el("div");a.append(el("h3",null,"A sua nota ("+r.chars+" caracteres)"),el("blockquote",null,r.nota));
+  const b=el("div");b.append(el("h3",null,R.notaModelo.titulo));const m=el("blockquote","model",R.notaModelo.texto);b.append(m);cols.append(a,b);c2.append(cols);
+  const ck=el("div","sec");ck.append(el("h3",null,"Pontos que a sua nota refere ("+r.cobre.length+" de "+r.rubrica.length+")"),el("p","note","Verificação automática por palavras-chave. Uma nota pode tratar um ponto por outras palavras: use-a como guia, não como nota."));
+  const ul=el("ul","check");r.rubrica.forEach(p=>{const y=r.cobre.includes(p.id);const li=el("li");li.append(el("span",y?"y":"n",y?"✓":"✗"),el("span",null,p.label));ul.append(li)});ck.append(ul);
+  (r.alertasMinha||[]).forEach(id=>{const al=r.alertas.find(z=>z.id===id);ck.append(el("p","status err","⚠ "+(al?al.label:id)+".")) });
+  c2.append(ck);
+  const why=el("div","sec");why.append(el("h3",null,"O que a nota modelo faz bem"));const wu=el("ul");R.notaModelo.porque.forEach(p=>wu.append(el("li",null,p)));why.append(wu);c2.append(why);
+  views.minha.append(c2);
+
+  // 3. A sala
+  const c3=el("section","card");c3.append(el("h2",null,"As notas da sala"));const box=el("div","wrap");box.style.gap="18px";const st=el("p","note");c3.append(st,box);views.sala.append(c3);
+  async function loadSala(){clearInterval(poll);const run=async()=>{try{const d=await api("/api/caso/"+id+"/painel",{method:"POST",body:{token}});
+      if(d.fechado){box.textContent="";st.textContent="O formador ainda não abriu a comparação. Esta página atualiza sozinha.";return}
+      st.textContent="Atualiza sozinha a cada 8 segundos.";renderDash(box,d,{mineCov:r.cobre})}catch(e){st.textContent="Não foi possível carregar a comparação."}};
+    await run();poll=setInterval(run,8000)}
+}
+boot();
+</script></body></html>

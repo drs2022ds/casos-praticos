@@ -1,0 +1,37 @@
+<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Área do formador</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap"><link rel="stylesheet" href="/style.css"></head><body>
+<div class="wrap" id="app">
+<header class="head"><div class="topbar"><span>Área do formador</span><a href="/">← Casos</a></div><h1>Painel do formador</h1></header>
+<section class="card" id="login"><div class="field"><label for="key">Chave do formador</label><input type="password" id="key" autocomplete="current-password"></div>
+<div class="actions"><button class="primary" id="enter" type="button">Entrar</button><span class="status err" id="lerr"></span></div></section>
+<div class="wrap" id="panel" hidden style="gap:20px">
+<section class="card"><div class="toolbar"><div class="field" style="min-width:240px"><label for="caso">Caso</label><select id="caso"></select></div>
+<div class="actions"><button class="ghost small" id="csv" type="button">Exportar CSV</button><button class="ghost small" id="clear" type="button">Apagar todas as notas</button></div></div>
+<div class="toolbar"><label class="toggle"><input type="checkbox" id="aberto"> Painel aberto aos alunos</label><label class="toggle"><input type="checkbox" id="anon"> Esconder nomes dos grupos aos alunos</label></div>
+<p class="note" id="info"></p></section>
+<section class="card"><div id="dash" class="wrap" style="gap:18px"></div></section></div>
+<p class="foot">Atualiza sozinho a cada 5 segundos</p></div>
+<script src="/common.js"></script>
+<script>
+"use strict";
+let key=sessionStorage.getItem("fk")||"",timer=null,casoId=null;
+const cur=()=>$("#caso").value;
+async function login(){
+  $("#lerr").textContent="";
+  try{const cs=await api("/api/casos");await api("/api/formador/"+cs[0].id+"/painel",{key});sessionStorage.setItem("fk",key);
+    $("#login").hidden=true;$("#panel").hidden=false;const s=$("#caso");cs.forEach(c=>{const o=el("option",null,c.titulo);o.value=c.id;s.append(o)});
+    s.value=store.get("fcaso")||cs[0].id;if(!s.value)s.value=cs[0].id;s.onchange=()=>{store.set("fcaso",s.value);load()};load();timer=setInterval(load,5000)}
+  catch(e){$("#lerr").textContent=e.status===401?"Chave incorreta.":"Não foi possível entrar."}}
+async function load(){
+  try{const d=await api("/api/formador/"+cur()+"/painel",{key});
+    $("#aberto").checked=d.config.painel_aberto;$("#anon").checked=d.config.anonimo;
+    $("#info").textContent=d.config.painel_aberto?"Os alunos já podem ver a comparação depois de entregarem.":"A comparação está fechada: os alunos veem “o formador ainda não abriu”.";
+    renderDash($("#dash"),d,{trainer:true,onDelete:async id=>{await api("/api/formador/"+cur()+"/notas/"+id,{method:"DELETE",key});load()}})}
+  catch(e){if(e.status===401){clearInterval(timer);sessionStorage.removeItem("fk");location.reload()}}}
+async function cfg(p){await api("/api/formador/"+cur()+"/config",{method:"POST",key,body:p});load()}
+$("#enter").onclick=()=>{key=$("#key").value;login()};$("#key").onkeydown=e=>{if(e.key==="Enter")$("#enter").click()};
+$("#aberto").onchange=e=>cfg({painel_aberto:e.target.checked});$("#anon").onchange=e=>cfg({anonimo:e.target.checked});
+$("#csv").onclick=async()=>{const t=await api("/api/formador/"+cur()+"/export",{key});const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/csv"}));a.download="notas-"+cur()+".csv";a.click()};
+let arm=0;$("#clear").onclick=async e=>{if(!arm){arm=1;e.target.textContent="Confirmar: apagar tudo";setTimeout(()=>{arm=0;e.target.textContent="Apagar todas as notas"},4000);return}
+  arm=0;e.target.textContent="Apagar todas as notas";await api("/api/formador/"+cur()+"/notas",{method:"DELETE",key});load()};
+if(key)login();
+</script></body></html>

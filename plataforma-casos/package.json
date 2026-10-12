@@ -1,0 +1,13 @@
+{
+  "name": "plataforma-casos-formacao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de casos práticos: o aluno escreve a nota, só depois vê o trabalho do Claude e compara com a sala.",
+  "scripts": {
+    "dev": "node server.js",
+    "test": "node test/e2e.test.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": { "pg": "^8.13.0" },
+  "devDependencies": { "@electric-sql/pglite": "^0.2.17" }
+}
