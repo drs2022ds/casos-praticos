@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Plataforma de casos práticos: o aluno escreve a nota, só depois vê o trabalho do Claude e compara com a sala.",
+  "main": "lib/devserver.js",
   "scripts": {
     "dev": "node lib/devserver.js",
     "test": "node test/e2e.test.js"
