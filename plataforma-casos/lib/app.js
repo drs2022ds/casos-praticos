@@ -140,7 +140,9 @@ route("GET", /^\/api\/formador\/([\w-]+)\/export$/, async (req, m) => {
 
 async function handle(req, res) {
   try {
-    const path = new URL(req.url, "http://x").pathname.replace(/\/+$/, "") || "/";
+    const u = new URL(req.url, "http://x");
+    let path = u.pathname.replace(/\/+$/, "") || "/";
+    if (/^\/api\/index(\.js)?$/.test(path)) path = "/api/" + (u.searchParams.get("p") || "");
     for (const r of routes) {
       const m = r.method === req.method && path.match(r.re);
       if (!m) continue;

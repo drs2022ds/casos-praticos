@@ -1,5 +1,5 @@
 {
   "cleanUrls": true,
-  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index.js" }],
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api/index.js?p=$1" }],
   "headers": [{ "source": "/(.*)", "headers": [{ "key": "X-Content-Type-Options", "value": "nosniff" }, { "key": "Referrer-Policy", "value": "same-origin" }] }]
 }
