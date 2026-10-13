@@ -1,0 +1,8 @@
+{
+  "name": "detector-obfuscacao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Detector de Obfuscação: triagem de textos jurídicos com painel. Sem dependências.",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node lib/standalone.js", "test": "node test/run.test.js" }
+}
