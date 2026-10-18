@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Material de apoio · Skills, auditoria e autonomia · Abreu Advogados</title>
+<style>
+:root{
+  --bg:#faf8f3; --fg:#1b2333; --muted:#566074; --navy:#14213d; --gold:#b8892b; --gold-soft:#f3e9d2;
+  --card:#ffffff; --line:#ddd6c5; --code:#f1ede2; --ok:#2f6b4f; --warn:#8a5a12; --stop:#8f2a3a;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151f; --fg:#e8e6df; --muted:#a3acbd; --navy:#e8d9b0; --gold:#d3a846; --gold-soft:#262218;
+    --card:#171e2c; --line:#2d374a; --code:#1d2638; --ok:#7fc4a0; --warn:#e0b567; --stop:#e48a99; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Calibri,"Carlito","Segoe UI",system-ui,sans-serif}
+a{color:var(--navy)}
+h1,h2,h3{font-family:Cambria,"Caladea",Georgia,serif;color:var(--navy);line-height:1.25;text-wrap:balance}
+header.top{background:var(--navy);color:#f6f0e0;padding:2.2rem 1.25rem 1.8rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.top{background:#0b0f18;color:#e8e6df;border-bottom:1px solid var(--line)}}
+header.top .in{max-width:980px;margin:0 auto}
+header.top h1{color:#fff;font-size:clamp(1.6rem,4vw,2.3rem);margin:.2rem 0 .6rem}
+header.top p{margin:.2rem 0;max-width:68ch;color:#e9e2cf}
+.kicker{letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:#e3c27a}
+nav.idx{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav.idx .in{max-width:980px;margin:0 auto;padding:.55rem 1.25rem;display:flex;gap:.4rem}
+nav.idx a{color:var(--fg);text-decoration:none;font-size:.88rem;padding:.25rem .65rem;border:1px solid var(--line);border-radius:999px}
+nav.idx a:hover{border-color:var(--gold);color:var(--gold)}
+main{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+section{padding-top:1.4rem;margin-top:1.2rem;border-top:2px solid var(--gold)}
+section h2{font-size:1.5rem;margin:.2rem 0 .8rem;display:flex;gap:.7rem;align-items:baseline}
+section h2 .n{color:var(--gold);font-size:1.1rem;min-width:1.8rem}
+h3{font-size:1.1rem;margin:1.3rem 0 .4rem}
+p,li{max-width:76ch}
+.aviso{background:var(--gold-soft);border-left:4px solid var(--gold);padding:.7rem 1rem;border-radius:4px;margin:1rem 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem;margin:.9rem 0}
+.box h3{margin-top:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:.9rem 0}
+.meta .box{margin:0}
+.meta b{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+.tw{overflow-x:auto;margin:.8rem 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+th,td{padding:.55rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:.85rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) th{color:#10151f}}
+tr:last-child td{border-bottom:0}
+.prompt{position:relative;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:.8rem 3.4rem .8rem .9rem;margin:.6rem 0;font:.93rem/1.5 Consolas,"Cascadia Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.prompt button{position:absolute;top:.45rem;right:.45rem;font:.75rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:4px;padding:.2rem .5rem;cursor:pointer}
+.prompt button:hover{border-color:var(--gold)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:.05rem .4rem;margin-right:.3rem;border:1px solid currentColor}
+.t1{color:var(--ok)}.t2{color:var(--warn)}.t3{color:var(--stop)}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{counter-increment:s;position:relative;padding:.1rem 0 .5rem 2.4rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--gold);color:#fff;text-align:center;font-weight:700;font-size:.9rem;line-height:1.7rem}
+ul.dl{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.4rem .8rem}
+ul.dl a{color:var(--fg);text-decoration:none;display:block;padding:.4rem .6rem;border:1px solid var(--line);border-radius:6px;background:var(--card);overflow-wrap:anywhere;font-size:.92rem}
+ul.dl a:hover{border-color:var(--gold)}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin:1rem 0}
+.ladder .box{margin:0;border-top:4px solid var(--gold)}
+.ladder .box b.l{display:block;font-size:.78rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.fill{border-bottom:1px solid var(--muted);display:inline-block;min-width:12ch}
+.ficha .row{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:.4rem .8rem;border-bottom:1px dashed var(--line);padding:.55rem 0}
+.ficha .row b{font-size:.9rem}
+.ficha .line{border-bottom:1px solid var(--muted);height:1.5rem;margin-bottom:.35rem}
+.ficha .cb{margin-right:1rem;display:inline-block}
+.ficha .row>*{min-width:0}
+details{margin:.6rem 0}
+summary{cursor:pointer;font-weight:600;color:var(--navy)}
+footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+@media (max-width:640px){.ficha .row{grid-template-columns:1fr}}
+@media print{
+  nav.idx,header.top,.prompt button,section:not(#ficha){display:none}
+  section#ficha{display:block;border:0}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+ <div class="in">
+  <div class="kicker">Formação em IA generativa · Abreu Advogados</div>
+  <h1>Material de apoio: skills, auditoria e autonomia</h1>
+  <p>Como usar uma skill com rasto de auditoria, como encadeá-las com paragens e como saber quando (e se) deve passar de uma skill a um agente.</p>
+  <p>Dia da formação: [POR PREENCHER]</p>
+ </div>
+</header>
+
+<nav class="idx" aria-label="Índice"><div class="in">
+ <a href="#comecar">Começar</a><a href="#escada">1 · Escada</a><a href="#rasto">2 · Folha de rasto</a>
+ <a href="#ex-revisao">3 · Revisão</a><a href="#ex-minuta">4 · Minuta</a><a href="#ex-extraccao">5 · Extracção</a>
+ <a href="#ex-juris">6 · Jurisprudência</a><a href="#ex-detector">7 · Detector</a><a href="#ex-briefing">8 · Briefing</a><a href="#ex-prazos">9 · Prazos</a><a href="#degrau3">10 · Fluxo encadeado</a>
+ <a href="#criar">11 · Criar a minha skill</a><a href="#ficha">12 · Ficha</a><a href="#agentes">13 · Agentes</a><a href="#ref">Referência</a>
+</div></nav>
+
+<main>
+
+<section id="comecar">
+ <h2><span class="n">0</span>Começar</h2>
+ <div class="aviso"><b>Demonstração académica: dados fictícios.</b> Todos os clientes, contratos, decisões e documentos desta página são inventados para exercício. As decisões judiciais são fictícias, mesmo quando aplicam direito português real: não as cite como jurisprudência. Nunca use aqui documentos reais de clientes.</div>
+ <p>Esta página reúne os exercícios com skills e a passagem a fluxos com paragens. Cada exercício segue o mesmo padrão: objectivo, material, pedido, resultado esperado e discussão. O modelo de trabalho é: <b>o formador demonstra, os formandos repetem, o grupo compara e valida.</b></p>
+ <div class="meta">
+  <div class="box"><b>Marcador de lacunas</b>Quando falta um dado, as skills escrevem <code>[POR PREENCHER: descrição]</code>. Nunca devem inventar. Um marcador no sítio certo é um bom resultado.</div>
+  <div class="box"><b>Como avaliar um resultado</b><span class="tag t1">certo</span><span class="tag t2">[POR PREENCHER] assinalado</span><span class="tag t3">inventado</span> O último é o único erro grave.</div>
+  <div class="box"><b>Antes de começar</b>Confirme que as skills aparecem em <em>Personalizar › Skills</em> e estão activas. Se alguma faltar, avise o formador.</div>
+ </div>
+ <p>Abra uma <b>conversa nova</b> para cada exercício, anexe os ficheiros indicados e cole o pedido. Todos os ficheiros estão na secção <a href="#ref">Referência</a>.</p>
+</section>
+
+<section id="escada">
+ <h2><span class="n">1</span>A escada de autonomia</h2>
+ <p><b>Objectivo.</b> Perceber a diferença entre skill, fluxo encadeado e agente, e o que tem de existir antes de dar mais autonomia ao Claude.</p>
+ <div class="ladder">
+  <div class="box"><b class="l">Degrau 1</b><h3>Skill supervisionada</h3>Carrega os documentos, lê o resultado e decide. Tudo acontece na conversa.</div>
+  <div class="box"><b class="l">Degrau 2</b><h3>Skill com folha de rasto</h3>O resultado traz o registo do que foi lido, decidido e deixado em aberto.</div>
+  <div class="box"><b class="l">Degrau 3</b><h3>Fluxo com paragens</h3>Várias etapas encadeadas. O fluxo pára e espera pela sua decisão em momentos fixos.</div>
+  <div class="box"><b class="l">Degrau 4</b><h3>Agente</h3>Age sobre ficheiros ou outros sistemas. Exige âmbito mínimo, aprovação humana e decisão da firma e da TI.</div>
+ </div>
+ <h3>Skill, artefacto e agente</h3>
+ <div class="tw"><table>
+  <tr><th></th><th>Skill</th><th>Artefacto</th><th>Agente</th></tr>
+  <tr><td><b>O que é</b></td><td>Instruções que ensinam o Claude a fazer bem uma tarefa.</td><td>Página ou pequena aplicação publicada, com interface própria (por exemplo, o painel do detector).</td><td>O Claude a trabalhar em ciclo, com ferramentas, decidindo os passos seguintes.</td></tr>
+  <tr><td><b>Onde está</b></td><td>Na conta de quem a guarda.</td><td>Numa ligação, dentro da organização.</td><td>Num ambiente com acesso a ficheiros ou sistemas.</td></tr>
+  <tr><td><b>Resultado</b></td><td>Texto na conversa.</td><td>Algo que se vê e em que se clica.</td><td>Ações, além de texto.</td></tr>
+  <tr><td><b>Risco principal</b></td><td>Resultado incorrecto que não se detecta.</td><td>Depende da conta de quem abre.</td><td>Erros encadeados e ações com efeitos.</td></tr>
+ </table></div>
+ <h3>Salvaguardas por degrau</h3>
+ <ul>
+  <li><b>Âmbito mínimo:</b> acesso só de leitura e só ao necessário.</li>
+  <li><b>Paragem obrigatória</b> antes de qualquer decisão que cabe ao advogado e de qualquer ação com efeitos fora da conversa.</li>
+  <li><b>Folha de rasto:</b> o que foi lido, decidido e deixado em aberto.</li>
+  <li><b>Revisão independente:</b> uma segunda leitura, feita fora da conversa que produziu o resultado.</li>
+  <li><b>Teste com casos de resposta conhecida</b> antes de subir de degrau.</li>
+  <li><b>Limites de custo e de tempo.</b></li>
+ </ul>
+ <p><b>Discussão.</b> Em que degrau está hoje a tarefa que executa com mais frequência? Que paragens ou registos lhe faltam para subir um degrau com segurança?</p>
+</section>
+
+<section id="rasto">
+ <h2><span class="n">2</span>A folha de rasto</h2>
+ <p><b>Objectivo.</b> Saber ler e auditar a folha de rasto que as skills produzem no fim de cada resultado.</p>
+ <div class="tw"><table>
+  <tr><th>Secção</th><th>O que deve conter</th></tr>
+  <tr><td>Identificação</td><td>Skill, documentos usados (nome e versão), data da sessão ou <code>[POR PREENCHER]</code>.</td></tr>
+  <tr><td>Cobertura</td><td>Quantos pontos, campos ou variáveis foram tratados, com a soma a bater certo com o total.</td></tr>
+  <tr><td>Rasto</td><td>O que foi lido e como foi decidido (por ponto, por documento ou por variável).</td></tr>
+  <tr><td>Incoerências e conflitos</td><td>O que não bate certo e o que a skill fez (por exemplo, «mantido o modelo»).</td></tr>
+  <tr><td>Limitações</td><td>O que não foi lido ou ficou em falta.</td></tr>
+  <tr><td>Decisões pendentes</td><td>O que cabe ao advogado decidir.</td></tr>
+  <tr><td>Verificações feitas</td><td>As perguntas de auto-verificação, com sim/não e como se verificou.</td></tr>
+  <tr><td>Validação humana</td><td><b>Em branco</b>: Revisto por, data, observações. O Claude nunca a preenche.</td></tr>
+ </table></div>
+ <div class="aviso"><b>Limite essencial.</b> A folha é escrita pelo próprio Claude. Ajuda a verificar, mas não é prova independente: pode registar com confiança algo que não fez. Por isso, a validação é sempre humana, e a revisão independente (secção 10) é a salvaguarda adicional.</div>
+ <h3>Exercício: auditar uma folha</h3>
+ <ol class="steps">
+  <li>Escolha um dos exercícios seguintes e produza o resultado com a folha de rasto.</li>
+  <li>Abra uma <b>conversa nova</b> e cole só a folha, sem os documentos. Cole este pedido:
+   <div class="prompt">Audite esta folha de rasto. O que não se consegue verificar só com ela? Que afirmações exigiriam ver os documentos originais?<button type="button">Copiar</button></div></li>
+  <li>Compare o que o revisor pediu com o que a folha dava para confirmar sozinha.</li>
+ </ol>
+ <p><b>Discussão.</b> Que informação falta nesta folha para a auditar daqui a seis meses?</p>
+</section>
+
+<section id="ex-revisao">
+ <h2><span class="n">3</span>Exercício · Revisão contra playbook</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>revisao-contra-playbook</div>
+  <div class="box"><b>Material</b>Projecto de contrato de distribuição + Playbook de Distribuição (Meridional Alimentar)</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Rever um contrato contra um playbook, ponto a ponto, e distinguir o que é linha vermelha do que é aceitável.</p>
+ <div class="prompt">Use a skill de revisão contra playbook. Reveja o contrato anexo contra o playbook anexo. Quero a classificação de cada ponto do playbook e a folha de rasto.<button type="button">Copiar</button></div>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Todos os pontos do playbook classificados, incluindo temas que o contrato nem refere (omissões).</li>
+  <li>A distinção entre linha vermelha, fora do fallback, dentro do fallback e conforme. Nem tudo é linha vermelha.</li>
+  <li>Citação da cláusula e do ponto do playbook em cada conclusão.</li>
+  <li>Folha de rasto com a soma das categorias igual ao total de pontos do playbook.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Algum ponto foi marcado como problema estando dentro do fallback? Porque é um erro?</li>
+  <li>Como encontrou a skill os temas que o contrato não trata?</li>
+  <li>A folha de rasto diz alguma coisa que não consegue confirmar?</li>
+ </ul>
+</section>
+
+<section id="ex-minuta">
+ <h2><span class="n">4</span>Exercício · Minuta a partir de modelo</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>minuta-a-partir-de-template</div>
+  <div class="box"><b>Material</b>Modelo de contrato de prestação de serviços + Factos do caso (Projecto Girassol)</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Preencher um modelo da firma com os factos do cliente, sem alterar o que o modelo fixa e sem inventar dados.</p>
+ <div class="prompt">Use a skill de minuta. Prepare a minuta do contrato com o modelo anexo e os factos do caso anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Dados em falta marcados <code>[POR PREENCHER]</code>, nunca inventados.</li>
+  <li>Cláusulas fixas do modelo mantidas sem alteração, mesmo que o cliente peça outra coisa. O conflito é comunicado ao advogado.</li>
+  <li>Factos que não batem certo assinalados e não corrigidos pela skill.</li>
+  <li>Folha de rasto com a tabela de variáveis (valor, fonte e estado) e a soma por estado igual ao total do modelo.</li>
+ </ul>
+ <h3>Avalie cada variável</h3>
+ <p><span class="tag t1">certo</span><span class="tag t2">[POR PREENCHER] assinalado</span><span class="tag t3">inventado</span> Conte quantas de cada. O objectivo é zero «inventado».</p>
+ <h3>Discussão</h3>
+ <ul>
+  <li>O que fez a skill quando o pedido do cliente chocou com uma cláusula fixa? Quem devia decidir?</li>
+  <li>Houve valores que não somavam? A skill escolheu um ou perguntou?</li>
+  <li>Qual a vantagem de a folha dizer de onde veio cada dado?</li>
+ </ul>
+</section>
+
+<section id="ex-extraccao">
+ <h2><span class="n">5</span>Exercício · Extracção de cláusulas e riscos</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>extraccao-clausulas-riscos</div>
+  <div class="box"><b>Material</b>Três contratos da Aurora Têxteis (fornecimento, financiamento, arrendamento)</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Comparar vários documentos numa tabela, com fonte e citação, e detectar o que não bate certo dentro de cada um e entre eles.</p>
+ <div class="prompt">Use a skill de extracção. Quero uma tabela comparativa de partes, data, prazo, mudança de controlo, cessação, responsabilidade, exclusividade e garantias, com riscos, dos três contratos anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Cada valor com cláusula e citação curta; «Não consta» onde o documento é omisso.</li>
+  <li>Remissões sem destino e anexos em falta assinalados, sem presumir o seu conteúdo.</li>
+  <li>Incoerências dentro de cada contrato e entre contratos.</li>
+  <li>Interpretações marcadas como tal. Folha de rasto com a soma das células igual ao total.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Que riscos só aparecem quando se comparam os três documentos?</li>
+  <li>O que fez a skill ao encontrar uma remissão para algo que não existe?</li>
+  <li>Que perguntas ao advogado ficaram em aberto?</li>
+ </ul>
+</section>
+
+<section id="ex-juris">
+ <h2><span class="n">6</span>Exercício · Síntese de jurisprudência</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>sintese-jurisprudencia</div>
+  <div class="box"><b>Material</b>Cinco decisões fictícias sobre cláusula penal</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Sintetizar decisões com citações exactas, distinguir o decidido do obiter dictum, e recusar inventar o que não foi fornecido.</p>
+ <div class="prompt">Use a skill de jurisprudência. Em que condições pode o tribunal reduzir uma cláusula penal e a quem cabe o ónus da prova do excesso? Jurisdição: Portugal.<button type="button">Copiar</button></div>
+ <p>Depois faça uma segunda pergunta, fora do material:</p>
+ <div class="prompt">E o que diz a jurisprudência sobre indemnização de clientela?<button type="button">Copiar</button></div>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Citações que existem, palavra por palavra, nas decisões. Verifique pelo menos três, procurando o texto no documento.</li>
+  <li>Divergências assinaladas, com a indicação de qual a decisão posterior ou superior.</li>
+  <li>Obiter dictum identificado como tal.</li>
+  <li>Na segunda pergunta, a skill diz que as decisões fornecidas não cobrem o tema e sugere uma base oficial, em vez de responder de memória.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Alguma decisão foi apresentada como orientação vigente tendo sido afastada por outra?</li>
+  <li>Quantas citações conseguiu confirmar no texto original?</li>
+ </ul>
+</section>
+
+<section id="ex-detector">
+ <h2><span class="n">7</span>Exercício · Detector de obfuscação</h2>
+ <div class="meta">
+  <div class="box"><b>Skill ou artefacto</b>detector-obfuscacao (skill) · artefacto da firma</div>
+  <div class="box"><b>Material</b>Textos de exemplo (Projecto Horizonte e outros)</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto (skill)</div>
+ </div>
+ <p><b>Objectivo.</b> Identificar onde um texto parece mais seguro do que aquilo que demonstra. É triagem de fragilidades, <b>nunca</b> acusação de má-fé.</p>
+ <div class="prompt">Use a skill detector de obfuscação. Modo: relatório ou parecer de terceiros. O texto principal e os documentos de apoio estão anexos.<button type="button">Copiar</button></div>
+ <p>Experimente também os dois textos em inglês incluídos no zip (Korematsu e Bybee). O primeiro traz um documento de apoio; o segundo não, e a folha de rasto deve dizer que não houve confronto.</p>
+ <p>Ligação ao artefacto, com painel (apenas com a conta da firma): [POR PREENCHER: ligação]</p>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Cada achado com trecho literal, parágrafo, técnica e gravidade.</li>
+  <li>Conclusões com a força afirmada e a força sustentada, e a diferença entre ambas.</li>
+  <li>Nenhuma atribuição de intenção ou má-fé.</li>
+  <li>Se o texto estiver em inglês, trechos literais em inglês e análise em português.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Que achados dependem de documentos de apoio? O que muda sem eles?</li>
+  <li>Algum achado lhe parece linguagem jurídica normal? A skill devia tê-lo assinalado?</li>
+ </ul>
+</section>
+
+<section id="ex-briefing">
+ <h2><span class="n">8</span>Exercício · Briefing de audiência</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>briefing-audiencia</div>
+  <div class="box"><b>Material</b>Petição, contestação, despacho e documentos juntos (processo fictício 214/26.3 T8ALF)</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Preparar uma audiência a partir dos autos: temas da prova, factos controvertidos com fonte, cronologia, inconsistências, testemunhas e perguntas. A skill não prevê o resultado e não prepara respostas para as testemunhas.</p>
+ <div class="prompt">Use a skill de briefing de audiência. Sou advogado da Autora. Quero o briefing para a audiência de 14 de Janeiro de 2027, com a folha de rasto.<button type="button">Copiar</button></div>
+ <p>Repita com «Sou advogado da Ré». Depois, uma vez sem dizer de que parte é, e veja o que a skill faz.</p>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Os temas da prova são os do despacho, sem acrescentos, e cada um indica o que cada parte alega, o que está impugnado e que documento o prova.</li>
+  <li>Valores, datas e prazos recalculados com a conta à vista; inconsistências com as duas fontes.</li>
+  <li>Documentos referidos e não juntos assinalados; testemunhas arroladas e não admitidas identificadas.</li>
+  <li>Perguntas abertas, ligadas a um documento. Nenhuma previsão de resultado, nenhuma norma ou jurisprudência de fora.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Quantas inconsistências encontrou por si, antes de ler o briefing? A skill encontrou outras?</li>
+  <li>Alguma pergunta sugere a resposta? Onde fica a linha entre preparar uma inquirição e preparar uma testemunha?</li>
+  <li>O que mudou no briefing quando disse de que parte era?</li>
+ </ul>
+</section>
+
+<section id="ex-prazos">
+ <h2><span class="n">9</span>Exercício · Cálculo de prazos</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>calculo-prazos-quadro</div>
+  <div class="box"><b>Material</b>Quadro de prazos e calendário de feriados fictícios, e quatro notificações</div>
+  <div class="box"><b>Degrau</b>2 · com folha de rasto</div>
+ </div>
+ <p><b>Objectivo.</b> Calcular prazos só com as regras fornecidas, mostrando a conta, e ver a skill parar quando falta uma data. O regime é inventado: nenhum prazo ou feriado real deve ser usado.</p>
+ <div class="prompt">Use a skill de cálculo de prazos. Calcule os prazos de cada notificação anexa, com o quadro e o calendário anexos.<button type="button">Copiar</button></div>
+ <p>Depois faça um pedido fora do quadro:</p>
+ <div class="prompt">E qual é o prazo para o recurso hierárquico?<button type="button">Copiar</button></div>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Para cada prazo: a data de notificação presumida e de onde vem, a regra (artigo), os dias não contados, a data bruta, o ajuste e a data limite com o dia da semana.</li>
+  <li>Recontagem em sentido inverso.</li>
+  <li>Uma notificação com a data de registo ilegível não é calculada: a skill pára e pergunta.</li>
+  <li>O pedido fora do quadro recebe «Não consta do quadro», e não um prazo de memória.</li>
+ </ul>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Refaça um dos cálculos à mão. Coincide? Se a skill usar código, como verificou os dias da semana?</li>
+  <li>A data limite que a skill dá é a data em que entregaria a peça? Quem decide a data interna de segurança?</li>
+  <li>Que dados nunca deveria ler automaticamente de um PDF sem verificação humana?</li>
+ </ul>
+</section>
+
+<section id="degrau3">
+ <h2><span class="n">10</span>Degrau 3 · Fluxo encadeado com paragens</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>fluxo-revisao-contraproposta</div>
+  <div class="box"><b>Material</b>Contrato de distribuição + Playbook + Modelo de carta de contraproposta</div>
+  <div class="box"><b>Quem</b>O formador demonstra; os formandos repetem</div>
+ </div>
+ <p><b>Objectivo.</b> Encadear três etapas (extracção, revisão contra playbook, carta de contraproposta) sem perder o controlo. O fluxo pára <b>três vezes</b> para o advogado decidir.</p>
+ <div class="tw"><table>
+  <tr><th>Etapa</th><th>Paragem</th><th>O que lhe é pedido</th></tr>
+  <tr><td>1 · Extracção</td><td><b>A</b></td><td>Confirmar a tabela e resolver incoerências que afectam a classificação.</td></tr>
+  <tr><td>2 · Revisão</td><td><b>B</b></td><td>Decidir cada linha vermelha, omissão e ponto fora do fallback: posição preferida, fallback, ou deixar em aberto.</td></tr>
+  <tr><td>3 · Carta</td><td><b>C</b></td><td>Validar a carta, que só contém as decisões tomadas.</td></tr>
+ </table></div>
+ <h3>Execução</h3>
+ <ol class="steps">
+  <li>Conversa nova. Anexe o contrato, o playbook e o modelo de carta.</li>
+  <li>Cole o pedido:
+   <div class="prompt">Use o fluxo de revisão e contraproposta. Quero responder ao Distribuidor.<button type="button">Copiar</button></div></li>
+  <li>Em cada paragem, leia o que a skill apresenta antes de responder. Decida por si.</li>
+  <li>No fim, leia o <b>Registo de decisões</b> e a <b>Folha de rasto</b>.</li>
+ </ol>
+ <h3>Variante: quando o fluxo deve parar</h3>
+ <p>Repita numa conversa nova com o ficheiro <i>Contrato de distribuição · variante incoerente</i>, em vez do original. A cláusula 5.ª e a cláusula 10.ª não dizem o mesmo sobre o período inicial.</p>
+ <ul>
+  <li>O fluxo deve parar na paragem A e perguntar qual o prazo correcto.</li>
+  <li>Se avançar sem perguntar, é um defeito: registe-o e comunique ao formador.</li>
+ </ul>
+ <p>Repita ainda anexando apenas o contrato e o modelo de carta. A skill deve pedir o playbook e não começar.</p>
+ <h3>Revisão independente</h3>
+ <p>Copie a folha de rasto para uma conversa nova, sem o histórico, e peça uma auditoria (exercício da secção 2).</p>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Que paragem considera mais importante? Falta alguma?</li>
+  <li>O que aconteceria se a skill decidisse sozinha o fallback do prazo de pagamento?</li>
+  <li>Quem aprovou a cedência numa linha vermelha? A skill consegue confirmá-lo?</li>
+ </ul>
+ <div class="aviso"><b>Isto continua a ser uma skill.</b> Orquestra etapas na conversa, mas não envia, não grava nem acede a outros sistemas. O degrau 4 acrescenta isso, e com isso, riscos novos.</div>
+</section>
+
+<section id="criar">
+ <h2><span class="n">11</span>Criar a minha skill</h2>
+ <div class="meta">
+  <div class="box"><b>Skill</b>criar-skill-juridico</div>
+  <div class="box"><b>Material</b>Um documento <b>seu</b>, anonimizado, e, se existir, o padrão de referência</div>
+  <div class="box"><b>Entregável</b>A sua skill, testada, com o registo de construção</div>
+ </div>
+ <p><b>Objectivo.</b> Sair com uma skill própria que funciona, cujo processo de construção fica registado.</p>
+ <div class="prompt">Quero criar uma skill para uma tarefa minha. Use a skill criar-skill-juridico.<button type="button">Copiar</button></div>
+ <div class="tw"><table>
+  <tr><th>Fase</th><th>O que acontece</th><th>Paragem</th></tr>
+  <tr><td>1 · Entrevista</td><td>Perguntas sobre a tarefa, os documentos, o padrão, o resultado e os erros graves.</td><td>Confirma o resumo.</td></tr>
+  <tr><td>2 · Rascunho</td><td>O Claude escreve a skill com salvaguardas por defeito.</td><td>Lê e aprova.</td></tr>
+  <tr><td>3 · Teste</td><td>Cinco verificações, num documento anonimizado seu.</td><td>Vê o quadro de resultados.</td></tr>
+  <tr><td>4 · Revisão</td><td>Auto-revisão e pedido de revisão independente.</td><td>Confirma antes de guardar.</td></tr>
+  <tr><td>5 · Nível de autonomia</td><td>Em que degrau está a skill e o que faltava para subir.</td><td>—</td></tr>
+ </table></div>
+ <p>Toda a skill criada aqui começa no <b>degrau 2</b>: só lê e escreve texto, cita a fonte, não inventa, pede o que falta, para quando há conflito e termina com folha de rasto.</p>
+ <ul>
+  <li><b>Anonimize sempre</b> o documento antes de o anexar, salvo indicação da firma.</li>
+  <li>Guarde a skill apenas depois da paragem 4.</li>
+  <li>Preencha a ficha da secção seguinte.</li>
+ </ul>
+</section>
+
+<section id="ficha" class="ficha">
+ <h2><span class="n">12</span>Ficha de autonomia da minha skill</h2>
+ <p>Preencha no fim do exercício anterior. Pode imprimir esta secção.</p>
+ <div class="row"><b>Nome da skill</b><div class="line"></div></div>
+ <div class="row"><b>A tarefa que faz</b><div><div class="line"></div><div class="line"></div></div></div>
+ <div class="row"><b>Degrau actual</b><div><span class="cb">☐ 1 supervisionada</span><span class="cb">☐ 2 com folha de rasto</span><span class="cb">☐ 3 fluxo com paragens</span><span class="cb">☐ 4 agente</span></div></div>
+ <div class="row"><b>Documentos que lê</b><div class="line"></div></div>
+ <div class="row"><b>O que nunca deve fazer</b><div><div class="line"></div><div class="line"></div></div></div>
+ <div class="row"><b>Pontos de paragem</b><div><div class="line"></div><div class="line"></div><div class="line"></div></div></div>
+ <div class="row"><b>O que fica registado</b><div><div class="line"></div><div class="line"></div></div></div>
+ <div class="row"><b>Quem revê e como</b><div><div class="line"></div></div></div>
+ <div class="row"><b>Testes feitos</b><div><span class="cb">☐ 5 verificações passadas</span><span class="cb">☐ em 2 documentos diferentes</span><span class="cb">☐ revisão independente feita</span></div></div>
+ <div class="row"><b>Para subir de degrau falta</b><div><div class="line"></div><div class="line"></div></div></div>
+ <div class="row"><b>Decisão</b><div><span class="cb">☐ fica neste degrau</span><span class="cb">☐ sobe (com o formador e a TI)</span></div></div>
+ <div class="row"><b>Revisto por / data</b><div class="line"></div></div>
+</section>
+
+<section id="agentes">
+ <h2><span class="n">13</span>Agentes: o que acrescentar</h2>
+ <p><b>Objectivo.</b> Aplicar aos agentes de D2 (lançamento de horas e due diligence imobiliária) o que aprendeu: folha de rasto, paragens e âmbito mínimo.</p>
+ <h3>Passo final a acrescentar a cada agente</h3>
+ <div class="prompt">No fim, produza uma Folha de rasto com: os ficheiros lidos; o que decidiu e porquê; o que não conseguiu ler; as decisões pendentes para mim; as verificações feitas. Deixe a validação humana em branco e diga que a folha é produzida por si.<button type="button">Copiar</button></div>
+ <h3>Lista de verificação antes de dar acesso a dados reais</h3>
+ <ul>
+  <li>Âmbito mínimo: só de leitura e só às pastas ou fontes necessárias.</li>
+  <li>Nenhuma ação com efeitos (enviar, gravar, apagar, submeter) sem aprovação humana expressa.</li>
+  <li>Condições de paragem escritas: quando o agente tem de parar e perguntar.</li>
+  <li>Testado antes com casos fictícios de resposta conhecida.</li>
+  <li>Folha de rasto e revisão independente do resultado.</li>
+  <li>Limites de custo e de tempo.</li>
+  <li>Aprovação da firma e da TI para os dados e os acessos.</li>
+ </ul>
+ <p><b>Discussão.</b> O que mudaria no agente de horas se passasse a ligar-se ao correio e ao calendário reais? Que paragens e acessos seriam obrigatórios?</p>
+</section>
+
+<section id="ref">
+ <h2><span class="n">R</span>Referência</h2>
+ <h3>Ficheiros para descarregar</h3>
+ <details open><summary>Distribuição e fluxo encadeado (secções 3 e 10)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Contrato_Distribuicao_Projecto_Ficticio.docx" download>Contrato de distribuição (projecto)</a></li>
+   <li><a href="materiais/Playbook_Distribuicao_Meridional.docx" download>Playbook de distribuição Meridional</a></li>
+   <li><a href="materiais/Modelo_Carta_de_Contraproposta.docx" download>Modelo de carta de contraproposta</a></li>
+   <li><a href="materiais/Contrato_Distribuicao_variante_incoerente.docx" download>Contrato de distribuição · variante incoerente</a></li>
+  </ul></details>
+ <details open><summary>Minuta (secção 4)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Modelo_Contrato_Prestacao_Servicos.docx" download>Modelo de contrato de prestação de serviços</a></li>
+   <li><a href="materiais/Factos_do_Caso_Girassol.docx" download>Factos do caso Girassol</a></li>
+  </ul></details>
+ <details open><summary>Extracção (secção 5)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Contrato_Fornecimento_Aurora_Retalhos.docx" download>Contrato de fornecimento</a></li>
+   <li><a href="materiais/Contrato_Financiamento_Aurora_Banco.docx" download>Contrato de financiamento</a></li>
+   <li><a href="materiais/Contrato_Arrendamento_Aurora_Armazem.docx" download>Contrato de arrendamento</a></li>
+  </ul></details>
+ <details open><summary>Jurisprudência (secção 6)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Decisao_1_TRSM_2022.docx" download>Decisão 1 (2022)</a></li>
+   <li><a href="materiais/Decisao_2_TRMA_2022.docx" download>Decisão 2 (2022)</a></li>
+   <li><a href="materiais/Decisao_3_TRVN_2024.docx" download>Decisão 3 (2024)</a></li>
+   <li><a href="materiais/Decisao_4_TSJ_2024.docx" download>Decisão 4 (2024)</a></li>
+   <li><a href="materiais/Decisao_5_TRSM_2025.docx" download>Decisão 5 (2025)</a></li>
+  </ul></details>
+ <details open><summary>Detector (secção 7)</summary>
+  <ul class="dl"><li><a href="materiais/Exemplos_detector.zip" download>Textos de exemplo (zip)</a></li></ul></details>
+
+<details open><summary>Briefing de audiência (secção 8)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Peticao_Inicial_Papeis_do_Vale.docx" download>Petição inicial</a></li>
+   <li><a href="materiais/Contestacao_Grafica_Estrela.docx" download>Contestação</a></li>
+   <li><a href="materiais/Despacho_Agendamento_Audiencia.docx" download>Despacho de agendamento</a></li>
+   <li><a href="materiais/Documentos_juntos_Docs_1_a_8.docx" download>Documentos juntos (extractos)</a></li>
+  </ul></details>
+ <details open><summary>Cálculo de prazos (secção 9)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Quadro_de_Prazos_CPTF_ficticio.docx" download>Quadro de prazos (fictício)</a></li>
+   <li><a href="materiais/Calendario_de_Feriados_ficticio.docx" download>Calendário de feriados (fictício)</a></li>
+   <li><a href="materiais/Notificacao_A_Liquidacao.docx" download>Notificação A · liquidação</a></li>
+   <li><a href="materiais/Notificacao_B_Audicao_Previa.docx" download>Notificação B · audição prévia</a></li>
+   <li><a href="materiais/Notificacao_C_Decisao_Reclamacao.docx" download>Notificação C · decisão da reclamação</a></li>
+   <li><a href="materiais/Notificacao_D_data_ilegivel.docx" download>Notificação D · data ilegível</a></li>
+  </ul></details>
+
+ <h3>Glossário</h3>
+ <div class="tw"><table>
+  <tr><th>Termo</th><th>Significado</th></tr>
+  <tr><td>Skill</td><td>Instruções guardadas na sua conta que ensinam o Claude a fazer bem uma tarefa.</td></tr>
+  <tr><td>Artefacto</td><td>Página ou pequena aplicação publicada pelo Claude, com interface própria.</td></tr>
+  <tr><td>Agente</td><td>O Claude a trabalhar em ciclo, com ferramentas, decidindo os passos seguintes.</td></tr>
+  <tr><td>Folha de rasto</td><td>Registo, no fim do resultado, do que foi lido, decidido e deixado em aberto.</td></tr>
+  <tr><td>Paragem</td><td>Ponto em que o fluxo espera pela decisão do advogado antes de avançar.</td></tr>
+  <tr><td>Linha vermelha / fallback</td><td>No playbook: o que não se aceita sem aprovação superior / o que se aceita em alternativa à posição preferida.</td></tr>
+  <tr><td>[POR PREENCHER]</td><td>Marcador de um dado em falta. Nunca é substituído por um valor inventado.</td></tr>
+  <tr><td>Revisão independente</td><td>Segunda leitura feita numa conversa nova, sem o histórico que produziu o resultado.</td></tr>
+ </table></div>
+
+ <h3>Perguntas frequentes</h3>
+ <details><summary>A skill não aparece na minha lista.</summary><p>Verifique se as Skills estão activas na sua conta e recarregue a página. Se persistir, avise o formador: a activação depende das definições da organização.</p></details>
+ <details><summary>A skill inventou um dado. O que faço?</summary><p>Registe o caso (o que pediu, o que obteve) e comunique ao formador. É a falha mais importante a detectar.</p></details>
+ <details><summary>Posso usar documentos reais?</summary><p>Não nestes exercícios. Anonimize sempre, salvo indicação expressa da firma.</p></details>
+ <details><summary>O Claude não consegue ler uma data que está num carimbo ou numa imagem do PDF.</summary><p>Diga-o na folha de rasto como limitação e confirme a data no original. Uma data lida automaticamente de um PDF nunca deve entrar numa agenda de prazos sem verificação humana.</p></details>
+
+ <h3>Contactos</h3>
+ <p>Formador: [POR PREENCHER] · Apoio técnico: [POR PREENCHER]</p>
+</section>
+
+</main>
+
+<footer>
+ Material de apoio · Formação em IA generativa · Abreu Advogados. Demonstração académica: dados fictícios. A folha de rasto é produzida pelo próprio Claude e não substitui a verificação do advogado responsável.
+</footer>
+
+<script>
+document.querySelectorAll('.prompt button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var box=b.parentElement, txt=box.firstChild.textContent.trim();
+    function done(){var o=b.textContent;b.textContent='Copiado';setTimeout(function(){b.textContent=o},1400)}
+    function fallback(){
+      var r=document.createRange();r.selectNodeContents(box.firstChild);
+      var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado';setTimeout(function(){b.textContent='Copiar'},1400)
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+  });
+});
+</script>
+</body>
+</html>
