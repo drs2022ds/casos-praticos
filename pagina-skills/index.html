@@ -75,14 +75,23 @@ ul.dl a:hover{border-color:var(--gold)}
 .ficha .line{border-bottom:1px solid var(--muted);height:1.5rem;margin-bottom:.35rem}
 .ficha .cb{margin-right:1rem;display:inline-block}
 .ficha .row>*{min-width:0}
+.ficha input[type=text],.ficha textarea{width:100%;font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:.4rem .55rem;resize:vertical}
+.ficha textarea{min-height:2.6rem}
+.ficha input[type=text]:focus,.ficha textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ficha .cb input{margin-right:.35rem;accent-color:var(--gold)}
+.fa-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
+.fa-actions button{font:600 .9rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;padding:.45rem .9rem;cursor:pointer}
+.fa-actions button:hover{border-color:var(--gold)}
+#fa-msg{font-size:.88rem;color:var(--muted)}
 details{margin:.6rem 0}
 summary{cursor:pointer;font-weight:600;color:var(--navy)}
 footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
 @media (max-width:640px){.ficha .row{grid-template-columns:1fr}}
 @media print{
-  nav.idx,header.top,.prompt button,.skillwrap button,section:not(#ficha){display:none}
+  nav.idx,header.top,.prompt button,.skillwrap button,.fa-actions,section:not(#ficha){display:none}
   section#ficha{display:block;border:0}
   body{background:#fff;color:#000}
+  .ficha input[type=text],.ficha textarea{border:0;border-bottom:1px solid #000;border-radius:0;background:#fff;color:#000}
 }
 </style>
 </head>
@@ -973,19 +982,27 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
 
 <section id="ficha" class="ficha">
  <h2><span class="n">12</span>Ficha de autonomia da minha skill</h2>
- <p>Preencha no fim do exercício anterior. Pode imprimir esta secção.</p>
- <div class="row"><b>Nome da skill</b><div class="line"></div></div>
- <div class="row"><b>A tarefa que faz</b><div><div class="line"></div><div class="line"></div></div></div>
- <div class="row"><b>Degrau actual</b><div><span class="cb">☐ 1 supervisionada</span><span class="cb">☐ 2 com folha de rasto</span><span class="cb">☐ 3 fluxo com paragens</span><span class="cb">☐ 4 agente</span></div></div>
- <div class="row"><b>Documentos que lê</b><div class="line"></div></div>
- <div class="row"><b>O que nunca deve fazer</b><div><div class="line"></div><div class="line"></div></div></div>
- <div class="row"><b>Pontos de paragem</b><div><div class="line"></div><div class="line"></div><div class="line"></div></div></div>
- <div class="row"><b>O que fica registado</b><div><div class="line"></div><div class="line"></div></div></div>
- <div class="row"><b>Quem revê e como</b><div><div class="line"></div></div></div>
- <div class="row"><b>Testes feitos</b><div><span class="cb">☐ 5 verificações passadas</span><span class="cb">☐ em 2 documentos diferentes</span><span class="cb">☐ revisão independente feita</span></div></div>
- <div class="row"><b>Para subir de degrau falta</b><div><div class="line"></div><div class="line"></div></div></div>
- <div class="row"><b>Decisão</b><div><span class="cb">☐ fica neste degrau</span><span class="cb">☐ sobe (com o formador e a TI)</span></div></div>
- <div class="row"><b>Revisto por / data</b><div class="line"></div></div>
+ <p>Preencha no fim do exercício 11. A ficha guarda-se sozinha <b>neste navegador, neste computador</b>: não é enviada a ninguém. Para a guardar para si, use «Descarregar» (ficheiro de texto) ou «Copiar». «Nova ficha» limpa os campos para a skill seguinte. Num computador partilhado, descarregue a ficha e depois limpe-a.</p>
+ <form id="fichaform" onsubmit="return false">
+ <div class="row"><b>Nome da skill</b><div><input type="text" name="nome" data-f></div></div>
+ <div class="row"><b>A tarefa que faz</b><div><textarea name="tarefa" rows="2" data-f></textarea></div></div>
+ <div class="row"><b>Degrau actual</b><div><label class="cb"><input type="radio" name="degrau" value="1 supervisionada" data-f> 1 supervisionada</label><label class="cb"><input type="radio" name="degrau" value="2 com folha de rasto" data-f> 2 com folha de rasto</label><label class="cb"><input type="radio" name="degrau" value="3 fluxo com paragens" data-f> 3 fluxo com paragens</label><label class="cb"><input type="radio" name="degrau" value="4 agente" data-f> 4 agente</label></div></div>
+ <div class="row"><b>Documentos que lê</b><div><input type="text" name="docs" data-f></div></div>
+ <div class="row"><b>O que nunca deve fazer</b><div><textarea name="nunca" rows="2" data-f></textarea></div></div>
+ <div class="row"><b>Pontos de paragem</b><div><textarea name="paragens" rows="3" data-f></textarea></div></div>
+ <div class="row"><b>O que fica registado</b><div><textarea name="registo" rows="2" data-f></textarea></div></div>
+ <div class="row"><b>Quem revê e como</b><div><input type="text" name="revisor" data-f></div></div>
+ <div class="row"><b>Testes feitos</b><div><label class="cb"><input type="checkbox" name="testes_0" value="5 verificações passadas" data-f data-c> 5 verificações passadas</label><label class="cb"><input type="checkbox" name="testes_1" value="em 2 documentos diferentes" data-f data-c> em 2 documentos diferentes</label><label class="cb"><input type="checkbox" name="testes_2" value="revisão independente feita" data-f data-c> revisão independente feita</label></div></div>
+ <div class="row"><b>Para subir de degrau falta</b><div><textarea name="falta" rows="2" data-f></textarea></div></div>
+ <div class="row"><b>Decisão</b><div><label class="cb"><input type="radio" name="decisao" value="fica neste degrau" data-f> fica neste degrau</label><label class="cb"><input type="radio" name="decisao" value="sobe (com o formador e a TI)" data-f> sobe (com o formador e a TI)</label></div></div>
+ <div class="row"><b>Revisto por / data</b><div><input type="text" name="revisto" data-f></div></div>
+ </form>
+ <div class="fa-actions">
+  <button type="button" id="fa-copy">Copiar ficha</button>
+  <button type="button" id="fa-down">Descarregar (.txt)</button>
+  <button type="button" id="fa-new">Nova ficha</button>
+  <span id="fa-msg" role="status"></span>
+ </div>
 </section>
 
 <section id="agentes">
@@ -1102,6 +1119,48 @@ document.querySelectorAll('.skillwrap button').forEach(function(b){
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
   });
 });
+(function(){
+  var KEY='ficha-autonomia-v1', form=document.getElementById('fichaform'), msg=document.getElementById('fa-msg');
+  if(!form) return;
+  var fields=form.querySelectorAll('[data-f]');
+  function say(t){msg.textContent=t;setTimeout(function(){msg.textContent=''},2200)}
+  function read(){var o={};fields.forEach(function(f){
+    if(f.type==='radio'){if(f.checked)o[f.name]=f.value}
+    else if(f.type==='checkbox'){o[f.name]=f.checked}
+    else o[f.name]=f.value});return o}
+  function fill(o){fields.forEach(function(f){
+    if(f.type==='radio')f.checked=(o[f.name]===f.value);
+    else if(f.type==='checkbox')f.checked=!!o[f.name];
+    else f.value=o[f.name]||''});grow()}
+  function grow(){form.querySelectorAll('textarea').forEach(function(t){t.style.height='auto';t.style.height=Math.max(t.scrollHeight+2,42)+'px'})}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(read()))}catch(e){}}
+  try{var raw=localStorage.getItem(KEY);if(raw)fill(JSON.parse(raw))}catch(e){}
+  form.addEventListener('input',function(){save();grow()});
+  form.addEventListener('change',save);
+  function label(f){return f.closest('.row').querySelector('b').textContent}
+  function text(){
+    var o=read(), out=['FICHA DE AUTONOMIA DA SKILL',''];
+    form.querySelectorAll('.row').forEach(function(r){
+      var l=r.querySelector('b').textContent, v=[], inputs=r.querySelectorAll('[data-f]');
+      inputs.forEach(function(f){
+        if(f.type==='radio'){if(f.checked)v.push(f.value)}
+        else if(f.type==='checkbox'){v.push((f.checked?'[x] ':'[ ] ')+f.value)}
+        else if(f.value.trim())v.push(f.value.trim())});
+      out.push(l+': '+(v.length?v.join(r.querySelector('[type=checkbox]')?' | ':'; '):'—'))});
+    out.push('','Ficha de apoio produzida na formação. A validação humana é do advogado.');
+    return out.join('\n')}
+  document.getElementById('fa-copy').addEventListener('click',function(){
+    var t=text();
+    function fb(){var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');say('Copiado')}catch(e){say('Não foi possível copiar')}document.body.removeChild(ta)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say('Copiado')},fb)}else{fb()}});
+  document.getElementById('fa-down').addEventListener('click',function(){
+    var nome=(read().nome||'skill').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'skill';
+    var blob=new Blob(['\uFEFF'+text()],{type:'text/plain;charset=utf-8'}), a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download='ficha-autonomia-'+nome+'.txt';document.body.appendChild(a);a.click();document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(a.href)},1000);say('Ficheiro descarregado')});
+  document.getElementById('fa-new').addEventListener('click',function(){
+    if(window.confirm('Limpar todos os campos? Se ainda não descarregou ou copiou a ficha, perde-a.')){fill({});save();say('Ficha limpa')}});
+})();
 </script>
 </body>
 </html>
