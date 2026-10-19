@@ -83,6 +83,15 @@ ul.dl a:hover{border-color:var(--gold)}
 .fa-actions button{font:600 .9rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;padding:.45rem .9rem;cursor:pointer}
 .fa-actions button:hover{border-color:var(--gold)}
 #fa-msg{font-size:.88rem;color:var(--muted)}
+.tw .sub{font-weight:400;font-size:.8rem;color:var(--muted)}
+table.sg th .sub{color:inherit;opacity:.85}
+table.sg td.nv{text-align:center;font-size:.85rem;white-space:nowrap}
+table.sg td.ob{font-weight:700;color:var(--ok)}
+table.sg td.re{color:var(--warn)}
+table.sg td.na{color:var(--muted)}
+.ficha .hint{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem}
+table.sg th{text-align:center}
+table.sg th:first-child{text-align:left}
 details{margin:.6rem 0}
 summary{cursor:pointer;font-weight:600;color:var(--navy)}
 footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
@@ -144,13 +153,27 @@ footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--mut
   <tr><td><b>Risco principal</b></td><td>Resultado incorrecto que não se detecta.</td><td>Depende da conta de quem abre.</td><td>Erros encadeados e ações com efeitos.</td></tr>
  </table></div>
  <h3>Salvaguardas por degrau</h3>
+ <p>Cada degrau mantém as salvaguardas do anterior e acrescenta outras. Leia a tabela por colunas: a coluna de um degrau diz o que tem de existir para o usar.</p>
+ <div class="tw"><table class="sg">
+  <tr><th>Salvaguarda</th><th>Degrau 1<br><span class="sub">supervisionada</span></th><th>Degrau 2<br><span class="sub">com folha de rasto</span></th><th>Degrau 3<br><span class="sub">fluxo com paragens</span></th><th>Degrau 4<br><span class="sub">agente</span></th></tr>
+  <tr><td><b>Só os documentos fornecidos; não inventar</b><br><span class="sub">A skill diz «Não consta» ou [POR PREENCHER] em vez de preencher.</span></td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Verificação humana do resultado</b><br><span class="sub">O advogado confirma o que vai usar. Nenhum degrau a dispensa.</span></td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Folha de rasto</b><br><span class="sub">No degrau 3 é uma folha consolidada, com o registo de decisões.</span></td><td class="nv re">Recomendada</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Parar e perguntar quando falta um dado</b><br><span class="sub">Escrito na skill. No degrau 1 é o próprio advogado que lê tudo.</span></td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Teste com casos de resposta conhecida</b><br><span class="sub">Cinco verificações antes de usar em trabalho real; no degrau 3, em dois documentos diferentes.</span></td><td class="nv re">Recomendada</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Paragens entre etapas</b><br><span class="sub">O fluxo espera pela decisão do advogado antes de cada etapa.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Registo de decisões</b><br><span class="sub">Quem decidiu o quê em cada paragem.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Revisão independente</b><br><span class="sub">Segunda leitura numa conversa nova, sem o histórico.</span></td><td class="nv na">Não se aplica</td><td class="nv re">Recomendada</td><td class="nv ob">Obrigatória</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Âmbito mínimo: só leitura, só o necessário</b><br><span class="sub">Nos degraus 1 a 3 a skill só lê o que anexou e escreve texto na conversa.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Aprovação expressa antes de qualquer ação com efeitos</b><br><span class="sub">Enviar, gravar, apagar ou submeter.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Limites de custo e de tempo</b><br><span class="sub">Para o agente não se prolongar nem repetir sem controlo.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td></tr>
+  <tr><td><b>Aprovação da firma e da TI</b><br><span class="sub">Para os dados e os acessos. Fora do âmbito desta formação.</span></td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv na">Não se aplica</td><td class="nv ob">Obrigatória</td></tr>
+ </table></div>
+ <h3>O que muda ao subir</h3>
  <ul>
-  <li><b>Âmbito mínimo:</b> acesso só de leitura e só ao necessário.</li>
-  <li><b>Paragem obrigatória</b> antes de qualquer decisão que cabe ao advogado e de qualquer ação com efeitos fora da conversa.</li>
-  <li><b>Folha de rasto:</b> o que foi lido, decidido e deixado em aberto.</li>
-  <li><b>Revisão independente:</b> uma segunda leitura, feita fora da conversa que produziu o resultado.</li>
-  <li><b>Teste com casos de resposta conhecida</b> antes de subir de degrau.</li>
-  <li><b>Limites de custo e de tempo.</b></li>
+  <li><b>De 1 para 2:</b> a skill passa a registar o que leu, decidiu e deixou em aberto (folha de rasto) e a parar quando falta um dado.</li>
+  <li><b>De 2 para 3:</b> várias etapas encadeadas, com paragens e registo de decisões. Só faz sentido depois de as cinco verificações passarem em pelo menos dois documentos diferentes.</li>
+  <li><b>De 3 para 4:</b> deixa de ser só texto na conversa. O agente age sobre ficheiros ou sistemas, por isso exige âmbito mínimo, aprovação expressa, limites e decisão da firma e da TI. Não é tratado nesta formação.</li>
  </ul>
  <p><b>Discussão.</b> Em que degrau está hoje a tarefa que executa com mais frequência? Que paragens ou registos lhe faltam para subir um degrau com segurança?</p>
 </section>
@@ -982,7 +1005,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
 
 <section id="ficha" class="ficha">
  <h2><span class="n">12</span>Ficha de autonomia da minha skill</h2>
- <p>Preencha no fim do exercício 11. A ficha guarda-se sozinha <b>neste navegador, neste computador</b>: não é enviada a ninguém. Para a guardar para si, use «Descarregar» (ficheiro de texto) ou «Copiar». «Nova ficha» limpa os campos para a skill seguinte. Num computador partilhado, descarregue a ficha e depois limpe-a.</p>
+ <p>Preencha no fim do exercício 11. Os requisitos de cada degrau estão na <a href="#escada">tabela da secção 1</a>. A ficha guarda-se sozinha <b>neste navegador, neste computador</b>: não é enviada a ninguém. Para a guardar para si, use «Descarregar» (ficheiro de texto) ou «Copiar». «Nova ficha» limpa os campos para a skill seguinte. Num computador partilhado, descarregue a ficha e depois limpe-a.</p>
  <form id="fichaform" onsubmit="return false">
  <div class="row"><b>Nome da skill</b><div><input type="text" name="nome" data-f></div></div>
  <div class="row"><b>A tarefa que faz</b><div><textarea name="tarefa" rows="2" data-f></textarea></div></div>
@@ -993,8 +1016,8 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  <div class="row"><b>O que fica registado</b><div><textarea name="registo" rows="2" data-f></textarea></div></div>
  <div class="row"><b>Quem revê e como</b><div><input type="text" name="revisor" data-f></div></div>
  <div class="row"><b>Testes feitos</b><div><label class="cb"><input type="checkbox" name="testes_0" value="5 verificações passadas" data-f data-c> 5 verificações passadas</label><label class="cb"><input type="checkbox" name="testes_1" value="em 2 documentos diferentes" data-f data-c> em 2 documentos diferentes</label><label class="cb"><input type="checkbox" name="testes_2" value="revisão independente feita" data-f data-c> revisão independente feita</label></div></div>
- <div class="row"><b>Para subir de degrau falta</b><div><textarea name="falta" rows="2" data-f></textarea></div></div>
- <div class="row"><b>Decisão</b><div><label class="cb"><input type="radio" name="decisao" value="fica neste degrau" data-f> fica neste degrau</label><label class="cb"><input type="radio" name="decisao" value="sobe (com o formador e a TI)" data-f> sobe (com o formador e a TI)</label></div></div>
+ <div class="row"><b>Para subir de degrau falta</b><div><span class="hint">Veja na <a href="#escada">tabela da secção 1</a> a coluna do degrau seguinte.</span><textarea name="falta" rows="2" data-f></textarea></div></div>
+ <div class="row"><b>Decisão</b><div><label class="cb"><input type="radio" name="decisao" value="fica neste degrau" data-f> fica neste degrau</label><label class="cb"><input type="radio" name="decisao" value="sobe (para o degrau 4, só com o formador e a TI)" data-f> sobe (para o degrau 4, só com o formador e a TI)</label></div></div>
  <div class="row"><b>Revisto por / data</b><div><input type="text" name="revisto" data-f></div></div>
  </form>
  <div class="fa-actions">
@@ -1010,7 +1033,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  <p><b>Objectivo.</b> Aplicar aos agentes de D2 (lançamento de horas e due diligence imobiliária) o que aprendeu: folha de rasto, paragens e âmbito mínimo.</p>
  <h3>Passo final a acrescentar a cada agente</h3>
  <div class="prompt">No fim, produza uma Folha de rasto com: os ficheiros lidos; o que decidiu e porquê; o que não conseguiu ler; as decisões pendentes para mim; as verificações feitas. Deixe a validação humana em branco e diga que a folha é produzida por si.<button type="button">Copiar</button></div>
- <h3>Lista de verificação antes de dar acesso a dados reais</h3>
+ <h3>Lista de verificação antes de dar acesso a dados reais (degrau 4)</h3>
  <ul>
   <li>Âmbito mínimo: só de leitura e só às pastas ou fontes necessárias.</li>
   <li>Nenhuma ação com efeitos (enviar, gravar, apagar, submeter) sem aprovação humana expressa.</li>
