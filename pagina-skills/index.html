@@ -709,7 +709,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome da skill; materiais u
  </details>
  <details class="skillblock"><summary>11 · Criar a minha skill <code>criar-skill-juridico</code></summary>
   <p class="sk-meta">Para o exercício <a href="#criar">11</a>. Ficheiro: <a href="skills/criar-skill-juridico/SKILL.md" download>SKILL.md</a>.</p>
-  <div class="skillwrap"><pre class="skilltext">---
+  <div class="skillwrap"><pre class="skilltext" id="txt-criar-skill">---
 name: &quot;criar-skill-juridico&quot;
 description: &quot;Ajudar um advogado a criar e testar um skill próprio para uma tarefa repetitiva do seu trabalho, por fases com pontos de paragem, registo de auditoria e revisão independente.&quot;
 ---
@@ -986,7 +986,13 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
   <div class="box"><b>Entregável</b>A sua skill, testada, com o registo de construção</div>
  </div>
  <p><b>Objectivo.</b> Sair com uma skill própria que funciona, cujo processo de construção fica registado.</p>
+ <h3>Antes de começar: esta skill ainda não está na sua conta</h3>
+ <p>A skill <code>criar-skill-juridico</code> não vem instalada. Há dois caminhos; o resultado do exercício é o mesmo.</p>
+ <p><b>Caminho 1 · Sem instalar (funciona já).</b> Abra uma conversa nova, clique no botão, cole (Ctrl+V) e envie. O botão copia as instruções da skill precedidas de um pedido, e o Claude segue-as como se fossem a skill.</p>
+ <div class="prompt" id="p-criar-colar">Copia o pedido e as instruções completas da skill (texto do item 11 da secção S).<button type="button" id="btn-criar-colar">Copiar pedido e instruções</button></div>
+ <p><b>Caminho 2 · Criar primeiro a skill.</b> Siga os passos da <a href="#skills-texto">secção S</a> para criar <code>criar-skill-juridico</code> na sua conta e depois envie:</p>
  <div class="prompt">Quero criar uma skill para uma tarefa minha. Use a skill criar-skill-juridico.<button type="button">Copiar</button></div>
+ <p>No fim, o Claude entrega o texto da <b>sua</b> skill (o seu <code>SKILL.md</code>). Para a ter na conta, crie-a como na <a href="#skills-texto">secção S</a>, com o nome do cabeçalho.</p>
  <div class="tw"><table>
   <tr><th>Fase</th><th>O que acontece</th><th>Paragem</th></tr>
   <tr><td>1 · Entrevista</td><td>Perguntas sobre a tarefa, os documentos, o padrão, o resultado e os erros graves.</td><td>Confirma o resumo.</td></tr>
@@ -1123,7 +1129,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
 </footer>
 
 <script>
-document.querySelectorAll('.prompt button').forEach(function(b){
+document.querySelectorAll('.prompt button:not(#btn-criar-colar)').forEach(function(b){
   b.addEventListener('click',function(){
     var box=b.parentElement, txt=box.firstChild.textContent.trim();
     function done(){var o=b.textContent;b.textContent='Copiado';setTimeout(function(){b.textContent=o},1400)}
@@ -1134,6 +1140,16 @@ document.querySelectorAll('.prompt button').forEach(function(b){
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
   });
 });
+(function(){
+  var b=document.getElementById('btn-criar-colar'), pre=document.getElementById('txt-criar-skill');
+  if(!b||!pre) return;
+  b.addEventListener('click',function(){
+    var txt='Siga as instru\u00e7\u00f5es abaixo para me ajudar a criar uma skill para uma tarefa minha. Comece pela fase 1 (entrevista) e respeite todas as paragens.\n\n--- IN\u00cdCIO DAS INSTRU\u00c7\u00d5ES ---\n'+pre.textContent.trim()+'\n--- FIM DAS INSTRU\u00c7\u00d5ES ---';
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar pedido e instru\u00e7\u00f5es'},1400)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(pre);var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent='Instru\u00e7\u00f5es seleccionadas: copie com Ctrl+C';setTimeout(function(){b.textContent='Copiar pedido e instru\u00e7\u00f5es'},2600)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+  });
+})();
 document.querySelectorAll('.skillwrap button').forEach(function(b){
   b.addEventListener('click',function(){
     var pre=b.parentElement.querySelector('pre'), txt=pre.textContent;
