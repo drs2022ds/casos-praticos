@@ -90,6 +90,8 @@ table.sg td.ob{font-weight:700;color:var(--ok)}
 table.sg td.re{color:var(--warn)}
 table.sg td.na{color:var(--muted)}
 .ficha .hint{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem}
+.semskill{font-size:.88rem;border-left:3px solid var(--line);padding:.2rem 0 .2rem .8rem;margin:.4rem 0 .8rem;color:var(--muted)}
+.semskill-btn{margin-top:.4rem;font:inherit;font-size:.85rem;padding:.3rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg,inherit);cursor:pointer}
 table.sg th{text-align:center}
 table.sg th:first-child{text-align:left}
 details{margin:.6rem 0}
@@ -97,7 +99,7 @@ summary{cursor:pointer;font-weight:600;color:var(--navy)}
 footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
 @media (max-width:640px){.ficha .row{grid-template-columns:1fr}}
 @media print{
-  nav.idx,header.top,.prompt button,.skillwrap button,.fa-actions,section:not(#ficha){display:none}
+  nav.idx,header.top,.prompt button,.skillwrap button,.semskill,.fa-actions,section:not(#ficha){display:none}
   section#ficha{display:block;border:0}
   body{background:#fff;color:#000}
   .ficha input[type=text],.ficha textarea{border:0;border-bottom:1px solid #000;border-radius:0;background:#fff;color:#000}
@@ -772,6 +774,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Rever um contrato contra um playbook, ponto a ponto, e distinguir o que é linha vermelha do que é aceitável.</p>
  <div class="prompt">Use a skill de revisão contra playbook. Reveja o contrato anexo contra o playbook anexo. Quero a classificação de cada ponto do playbook e a folha de rasto.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 3. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="revisao-contra-playbook">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Todos os pontos do playbook classificados, incluindo temas que o contrato nem refere (omissões).</li>
@@ -796,6 +799,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Preencher um modelo da firma com os factos do cliente, sem alterar o que o modelo fixa e sem inventar dados.</p>
  <div class="prompt">Use a skill de minuta. Prepare a minuta do contrato com o modelo anexo e os factos do caso anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 4. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="minuta-a-partir-de-template">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Dados em falta marcados <code>[POR PREENCHER]</code>, nunca inventados.</li>
@@ -822,6 +826,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Comparar vários documentos numa tabela, com fonte e citação, e detectar o que não bate certo dentro de cada um e entre eles.</p>
  <div class="prompt">Use a skill de extracção. Quero uma tabela comparativa de partes, data, prazo, mudança de controlo, cessação, responsabilidade, exclusividade e garantias, com riscos, dos três contratos anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 5. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="extraccao-clausulas-riscos">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Cada valor com cláusula e citação curta; «Não consta» onde o documento é omisso.</li>
@@ -846,6 +851,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Sintetizar decisões com citações exactas, distinguir o decidido do obiter dictum, e recusar inventar o que não foi fornecido.</p>
  <div class="prompt">Use a skill de jurisprudência. Em que condições pode o tribunal reduzir uma cláusula penal e a quem cabe o ónus da prova do excesso? Jurisdição: Portugal.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 6. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="sintese-jurisprudencia">Copiar instruções e pedido</button></p>
  <p>Depois faça uma segunda pergunta, fora do material:</p>
  <div class="prompt">E o que diz a jurisprudência sobre indemnização de clientela?<button type="button">Copiar</button></div>
  <h3>Resultado esperado</h3>
@@ -871,6 +877,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Identificar onde um texto parece mais seguro do que aquilo que demonstra. É triagem de fragilidades, <b>nunca</b> acusação de má-fé.</p>
  <div class="prompt">Use a skill detector de obfuscação. Modo: relatório ou parecer de terceiros. O texto principal e os documentos de apoio estão anexos.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 7. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="detector-obfuscacao">Copiar instruções e pedido</button></p>
  <p>Experimente também os dois textos em inglês incluídos no zip (Korematsu e Bybee). O primeiro traz um documento de apoio; o segundo não, e a folha de rasto deve dizer que não houve confronto.</p>
  <p>Ligação ao artefacto, com painel (apenas com a conta da firma): [POR PREENCHER: ligação]</p>
  <h3>Resultado esperado</h3>
@@ -896,6 +903,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Preparar uma audiência a partir dos autos: temas da prova, factos controvertidos com fonte, cronologia, inconsistências, testemunhas e perguntas. A skill não prevê o resultado e não prepara respostas para as testemunhas.</p>
  <div class="prompt">Use a skill de briefing de audiência. Sou advogado da Autora. Quero o briefing para a audiência de 14 de Janeiro de 2027, com a folha de rasto.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 8. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="briefing-audiencia">Copiar instruções e pedido</button></p>
  <p>Repita com «Sou advogado da Ré». Depois, uma vez sem dizer de que parte é, e veja o que a skill faz.</p>
  <h3>Resultado esperado</h3>
  <ul>
@@ -921,6 +929,7 @@ No fim, produzir sob o título «Registo de construção»: 1. identificação (
  </div>
  <p><b>Objectivo.</b> Calcular prazos só com as regras fornecidas, mostrando a conta, e ver a skill parar quando falta uma data. O regime é inventado: nenhum prazo ou feriado real deve ser usado.</p>
  <div class="prompt">Use a skill de cálculo de prazos. Calcule os prazos de cada notificação anexa, com o quadro e o calendário anexos.<button type="button">Copiar</button></div>
+ <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 9. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="calculo-prazos-quadro">Copiar instruções e pedido</button></p>
  <p>Depois faça um pedido fora do quadro:</p>
  <div class="prompt">E qual é o prazo para o recurso hierárquico?<button type="button">Copiar</button></div>
  <h3>Resultado esperado</h3>
@@ -1137,6 +1146,19 @@ document.querySelectorAll('.prompt button:not(#btn-criar-colar)').forEach(functi
       var r=document.createRange();r.selectNodeContents(box.firstChild);
       var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado';setTimeout(function(){b.textContent='Copiar'},1400)
     }
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
+  });
+});
+document.querySelectorAll('.semskill-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var name=b.getAttribute('data-skill'), pre=null;
+    document.querySelectorAll('.skillblock').forEach(function(d){var c=d.querySelector('summary code');if(c&&c.textContent.trim()===name)pre=d.querySelector('pre')});
+    var pr=b.closest('section').querySelector('.prompt'); if(!pre||!pr) return;
+    var pedido=pr.firstChild.textContent.trim();
+    var txt='As instru\u00e7\u00f5es abaixo equivalem \u00e0 skill '+name+'. Aplique-as ao pedido que se segue.\n\n--- IN\u00cdCIO DAS INSTRU\u00c7\u00d5ES ---\n'+pre.textContent.trim()+'\n--- FIM DAS INSTRU\u00c7\u00d5ES ---\n\nPEDIDO: '+pedido;
+    var lab='Copiar instru\u00e7\u00f5es e pedido';
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent=lab},1400)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(pre);var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent='Seleccionado: copie com Ctrl+C';setTimeout(function(){b.textContent=lab},2600)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
   });
 });
