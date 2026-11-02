@@ -120,7 +120,7 @@ footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--mut
  <a href="#comecar">Começar</a><a href="#skills-texto">Skills</a><a href="#escada">1 · Escada</a><a href="#rasto">2 · Folha de rasto</a>
  <a href="#ex-revisao">3 · Revisão</a><a href="#ex-minuta">4 · Minuta</a><a href="#ex-extraccao">5 · Extracção</a>
  <a href="#ex-juris">6 · Jurisprudência</a><a href="#ex-detector">7 · Detector</a><a href="#ex-briefing">8 · Briefing</a><a href="#ex-prazos">9 · Prazos</a><a href="#degrau3">10 · Fluxo encadeado</a>
- <a href="#criar">11 · Criar a minha skill</a><a href="#ficha">12 · Ficha</a><a href="#agentes">13 · Agentes</a><a href="#orquestrador">A · Orquestrador</a><a href="#ref">Referência</a>
+ <a href="#criar">11 · Criar a minha skill</a><a href="#ficha">12 · Ficha</a><a href="#agentes">13 · Agentes</a><a href="#orquestrador">A · Orquestrador</a><a href="#ex-nda">B · Genérica vs. adaptada</a><a href="#ref">Referência</a>
 </div></nav>
 
 <main>
@@ -1183,6 +1183,56 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  <div class="aviso"><b>Continua a não ter acesso a nada.</b> Um agente a sério ligado a sistemas da firma precisa da aprovação da firma e da TI, âmbito mínimo e limites de custo. Esta skill serve para aprender a desenhá-lo e avaliá-lo, não para o substituir.</div>
 </section>
 
+<section id="ex-nda">
+ <h2><span class="n">B</span>Skill genérica vs. adaptada: um NDA recebido</h2>
+ <div class="meta">
+  <div class="box"><b>Skills</b>triage-nda (plugin Legal da Anthropic) · revisao-contra-playbook · minuta-a-partir-de-template</div>
+  <div class="box"><b>Material</b>NDA proposto pela Nortevia + Playbook de NDA (Meridional Alimentar) + Modelo de carta de resposta</div>
+  <div class="box"><b>Quem</b>O formador demonstra; os formandos repetem</div>
+ </div>
+ <p><b>Objectivo.</b> Correr sobre o mesmo NDA uma skill genérica, pensada para juristas de empresa nos Estados Unidos, e uma skill adaptada ao playbook do cliente, e comparar o que cada uma apanha, porquê e como se verifica.</p>
+ <p>A <code>triage-nda</code> faz parte do plugin Legal da Anthropic. Se não a vir na sua conta, o plugin não está activo: avise o formador. As outras duas skills estão na <a href="#skills-texto">secção S</a>, itens 3 e 4.</p>
+ <h3>Execução</h3>
+ <ol>
+  <li><b>Triagem.</b> Conversa nova. Anexe <b>só o NDA</b>, sem o playbook, de propósito. Cole o pedido:
+   <div class="prompt">Use a skill triage-nda. Faça a triagem do NDA anexo.<button type="button">Copiar</button></div></li>
+  <li><b>Revisão.</b> Conversa nova. Anexe o NDA e o Playbook de NDA. Cole o pedido:
+   <div class="prompt" id="pedido-nda-revisao">Use a skill de revisão contra playbook. Reveja o NDA anexo contra o playbook anexo. Quero a classificação de cada ponto do playbook e a folha de rasto.<button type="button">Copiar</button></div></li>
+  <li><b>Carta.</b> Na conversa da revisão, anexe o modelo de carta e diga que alterações decidiu pedir:
+   <div class="prompt" id="pedido-nda-carta">Use a skill de minuta. Prepare a carta de resposta à Nortevia com o modelo anexo. As alterações que decidi pedir são: [as suas decisões]. Quero a folha de rasto.<button type="button">Copiar</button></div></li>
+ </ol>
+ <p class="semskill">A skill de revisão ou de minuta não está na sua conta? Use o botão: copia as instruções da skill e o pedido; cole numa conversa nova e <b>anexe os documentos</b>.<br><button type="button" class="semskill-btn" data-skill="revisao-contra-playbook" data-prompt="pedido-nda-revisao">Copiar instruções e pedido (revisão)</button> <button type="button" class="semskill-btn" data-skill="minuta-a-partir-de-template" data-prompt="pedido-nda-carta">Copiar instruções e pedido (minuta)</button></p>
+ <h3>Resultado esperado</h3>
+ <ul>
+  <li>Na triagem: uma classificação em semáforo (verde, amarelo ou vermelho), com a indicação de que foram usados critérios por defeito, por não haver playbook.</li>
+  <li>Na revisão: os doze temas do playbook classificados, com a soma igual a doze na folha de rasto.</li>
+  <li>Cláusulas que não estão onde se esperaria encontradas nas duas skills. Leia o NDA até ao fim.</li>
+  <li>Incoerências do texto assinaladas e transformadas em perguntas, sem que a skill escolha um valor.</li>
+  <li>Na carta: só as alterações que decidiu pedir, sem posições acrescentadas pela skill, e os dados em falta como <code>[POR PREENCHER]</code>.</li>
+ </ul>
+ <h3>Compare</h3>
+ <div class="tw"><table>
+  <tr><th>Pergunta</th><th>triage-nda</th><th>revisao-contra-playbook</th></tr>
+  <tr><td>A conclusão final é a mesma?</td><td></td><td></td></tr>
+  <tr><td>Que problemas só uma delas assinalou?</td><td></td><td></td></tr>
+  <tr><td>Algum ponto foi marcado como problema sendo aceitável para o cliente?</td><td></td><td></td></tr>
+  <tr><td>Como verificaria cada resultado daqui a seis meses?</td><td></td><td></td></tr>
+ </table></div>
+ <h3>Discussão</h3>
+ <ul>
+  <li>Quem define o que é aceitável: o mercado ou o cliente? Onde está isso escrito em cada skill?</li>
+  <li>A skill genérica deu razões que serviriam numa negociação em Portugal?</li>
+  <li>O que teria de mudar na <code>triage-nda</code> para a usar na firma? (Ligação ao exercício 11.)</li>
+ </ul>
+ <h3>Outras demonstrações do plugin Legal</h3>
+ <p>Para o formador, se houver tempo. Mesma regra: conversa nova, documento anexo, skill chamada pelo nome.</p>
+ <div class="tw"><table>
+  <tr><th>Skill</th><th>Material</th><th>O que observar</th></tr>
+  <tr><td>compliance-check</td><td>Nota interna · Programa Meridional+</td><td>Que legislação cita? A portuguesa e a europeia, ou a norte-americana?</td></tr>
+  <tr><td>legal-response</td><td>Pedido de acesso a dados pessoais</td><td>Responde com um modelo ou percebe que o caso tem de subir a um advogado?</td></tr>
+ </table></div>
+</section>
+
 <section id="ref">
  <h2><span class="n">R</span>Referência</h2>
  <h3>Ficheiros para descarregar</h3>
@@ -1231,6 +1281,14 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
    <li><a href="materiais/Notificacao_C_Decisao_Reclamacao.docx" download>Notificação C · decisão da reclamação</a></li>
    <li><a href="materiais/Notificacao_D_data_ilegivel.docx" download>Notificação D · data ilegível</a></li>
   </ul></details>
+ <details open><summary>NDA e plugin Legal da Anthropic (secção B)</summary>
+  <ul class="dl">
+   <li><a href="materiais/Acordo_Confidencialidade_Nortevia_recebido.docx" download>NDA proposto pela Nortevia</a></li>
+   <li><a href="materiais/Playbook_NDA_Meridional.docx" download>Playbook de NDA Meridional</a></li>
+   <li><a href="materiais/Modelo_Carta_Resposta_NDA.docx" download>Modelo de carta de resposta a NDA</a></li>
+   <li><a href="materiais/Nota_Interna_Programa_Meridional_Mais.docx" download>Nota interna · Programa Meridional+</a></li>
+   <li><a href="materiais/Pedido_Acesso_Titular_Dados.docx" download>Pedido de acesso a dados pessoais</a></li>
+  </ul></details>
 
  <h3>Glossário</h3>
  <div class="tw"><table>
@@ -1275,10 +1333,10 @@ document.querySelectorAll('.semskill-btn').forEach(function(b){
   b.addEventListener('click',function(){
     var name=b.getAttribute('data-skill'), pre=null;
     document.querySelectorAll('.skillblock').forEach(function(d){var c=d.querySelector('summary code');if(c&&c.textContent.trim()===name)pre=d.querySelector('pre')});
-    var pr=b.closest('section').querySelector('.prompt'); if(!pre||!pr) return;
+    var pid=b.getAttribute('data-prompt'), pr=pid?document.getElementById(pid):b.closest('section').querySelector('.prompt'); if(!pre||!pr) return;
     var pedido=pr.firstChild.textContent.trim();
     var txt='As instru\u00e7\u00f5es abaixo equivalem \u00e0 skill '+name+'. Aplique-as ao pedido que se segue.\n\n--- IN\u00cdCIO DAS INSTRU\u00c7\u00d5ES ---\n'+pre.textContent.trim()+'\n--- FIM DAS INSTRU\u00c7\u00d5ES ---\n\nPEDIDO: '+pedido;
-    var lab='Copiar instru\u00e7\u00f5es e pedido';
+    var lab=b.getAttribute('data-lab')||b.textContent; b.setAttribute('data-lab',lab);
     function done(){b.textContent='Copiado';setTimeout(function(){b.textContent=lab},1400)}
     function fallback(){var r=document.createRange();r.selectNodeContents(pre);var x=getSelection();x.removeAllRanges();x.addRange(r);b.textContent='Seleccionado: copie com Ctrl+C';setTimeout(function(){b.textContent=lab},2600)}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,fallback)}else{fallback()}
