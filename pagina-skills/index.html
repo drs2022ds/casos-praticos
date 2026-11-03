@@ -210,8 +210,8 @@ footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--mut
  <p>Em vez de receber as skills prontas, cria-as na sua conta a partir do texto abaixo. Assim fica a conhecer o ficheiro <code>SKILL.md</code>, que é o que o Claude lê. Versão dos textos: 19-10-2026. Se o formador corrigir um texto, volte a copiá-lo.</p>
  <h3>Como proceder</h3>
  <ol>
-  <li><b>Copie</b> o texto da skill do exercício (botão «Copiar»), ou descarregue o ficheiro <code>SKILL.md</code>.</li>
-  <li><b>Crie a skill</b> na sua conta e cole o texto. [POR PREENCHER: passos no ecrã, a confirmar numa conta de formando.] O nome tem de ser igual ao que consta do cabeçalho (<code>name</code>).</li>
+  <li><b>Descarregue</b> o ficheiro <code>SKILL.md</code> do item (ligação «SKILL.md») e ponha-o numa pasta com o nome da skill, igual ao <code>name</code> do cabeçalho (por exemplo, <code>agente-orquestrador-juridico</code>). Comprima essa pasta em ZIP.</li>
+  <li><b>Crie a skill</b> na sua conta: em <em>Personalizar › Skills</em>, carregue em <b>+</b> › <b>Criar skill</b> › <b>Carregar uma skill</b>, escolha o ZIP e confirme que a skill fica ligada. Se a opção não aparecer, active <em>Criar e editar ficheiros</em> em <em>Definições › Capacidades</em>; nas contas de equipa, fale com o formador.</li>
   <li><b>Verifique</b>: corra o primeiro pedido do exercício e compare com o «Resultado esperado». Se não bater certo, compare o seu texto com o desta página, linha a linha: um erro de cópia é a causa mais comum.</li>
  </ol>
  <h3>As partes de um SKILL.md</h3>
@@ -226,7 +226,7 @@ footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--mut
  </table></div>
  <p>Leia primeiro a skill do exercício 6 (jurisprudência), que é a mais curta. Depois compare com a do exercício 8 e veja o que foi acrescentado: a pergunta sobre a parte do utilizador e as regras sobre testemunhas.</p>
  <h3>Os textos</h3>
- <details class="skillblock"><summary>3 · Revisão contra playbook <code>revisao-contra-playbook</code></summary>
+ <details class="skillblock" id="sk-3"><summary>3 · Revisão contra playbook <code>revisao-contra-playbook</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-revisao">3</a>. Ficheiro: <a href="skills/revisao-contra-playbook/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;revisao-contra-playbook&quot;
@@ -286,7 +286,7 @@ Estrutura fixa:
 - A folha de rasto só regista o que foi mesmo feito, e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>4 · Minuta a partir de modelo <code>minuta-a-partir-de-template</code></summary>
+ <details class="skillblock" id="sk-4"><summary>4 · Minuta a partir de modelo <code>minuta-a-partir-de-template</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-minuta">4</a>. Ficheiro: <a href="skills/minuta-a-partir-de-template/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;minuta-a-partir-de-template&quot;
@@ -342,7 +342,7 @@ Estrutura fixa:
 - A folha de rasto só regista o que foi mesmo feito, a soma das variáveis por estado confere e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>5 · Extracção de cláusulas e riscos <code>extraccao-clausulas-riscos</code></summary>
+ <details class="skillblock" id="sk-5"><summary>5 · Extracção de cláusulas e riscos <code>extraccao-clausulas-riscos</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-extraccao">5</a>. Ficheiro: <a href="skills/extraccao-clausulas-riscos/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;extraccao-clausulas-riscos&quot;
@@ -397,7 +397,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 - A folha de rasto só regista o que foi mesmo feito, a soma das células confere e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>6 · Síntese de jurisprudência <code>sintese-jurisprudencia</code></summary>
+ <details class="skillblock" id="sk-6"><summary>6 · Síntese de jurisprudência <code>sintese-jurisprudencia</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-juris">6</a>. Ficheiro: <a href="skills/sintese-jurisprudencia/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;sintese-jurisprudencia&quot;
@@ -450,7 +450,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 - A folha de rasto só regista o que foi mesmo feito, e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>7 · Detector de obfuscação <code>detector-obfuscacao</code></summary>
+ <details class="skillblock" id="sk-7"><summary>7 · Detector de obfuscação <code>detector-obfuscacao</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-detector">7</a>. Ficheiro: <a href="skills/detector-obfuscacao/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;detector-obfuscacao&quot;
@@ -528,7 +528,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 - A folha de rasto só regista o que foi mesmo feito, e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>8 · Briefing de audiência <code>briefing-audiencia</code></summary>
+ <details class="skillblock" id="sk-8"><summary>8 · Briefing de audiência <code>briefing-audiencia</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-briefing">8</a>. Ficheiro: <a href="skills/briefing-audiencia/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;briefing-audiencia&quot;
@@ -600,7 +600,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 - A folha de rasto só regista o que foi feito e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>9 · Cálculo de prazos <code>calculo-prazos-quadro</code></summary>
+ <details class="skillblock" id="sk-9"><summary>9 · Cálculo de prazos <code>calculo-prazos-quadro</code></summary>
   <p class="sk-meta">Para o exercício <a href="#ex-prazos">9</a>. Ficheiro: <a href="skills/calculo-prazos-quadro/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;calculo-prazos-quadro&quot;
@@ -660,7 +660,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 - A folha de rasto só regista o que foi feito e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>10 · Fluxo encadeado (precisa das skills dos exercícios 3, 4 e 5) <code>fluxo-revisao-contraproposta</code></summary>
+ <details class="skillblock" id="sk-10"><summary>10 · Fluxo encadeado (precisa das skills dos exercícios 3, 4 e 5) <code>fluxo-revisao-contraproposta</code></summary>
   <p class="sk-meta">Para o exercício <a href="#degrau3">10</a>. Ficheiro: <a href="skills/fluxo-revisao-contraproposta/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext">---
 name: &quot;fluxo-revisao-contraproposta&quot;
@@ -709,7 +709,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome da skill; materiais u
 - A folha de rasto só regista o que foi feito e a validação humana ficou em branco?
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>11 · Criar a minha skill <code>criar-skill-juridico</code></summary>
+ <details class="skillblock" id="sk-11"><summary>11 · Criar a minha skill <code>criar-skill-juridico</code></summary>
   <p class="sk-meta">Para o exercício <a href="#criar">11</a>. Ficheiro: <a href="skills/criar-skill-juridico/SKILL.md" download>SKILL.md</a>.</p>
   <div class="skillwrap"><pre class="skilltext" id="txt-criar-skill">---
 name: &quot;criar-skill-juridico&quot;
@@ -763,7 +763,7 @@ Indicar em que degrau está o skill: 1 supervisionado; 2 com folha de rasto (ní
 No fim, produzir sob o título «Registo de construção»: 1. identificação (nome do skill; data da sessão, ou «[POR PREENCHER]» se não for conhecida); 2. resumo da entrevista; 3. decisões de desenho e razão; 4. versões (v1, v2...: o que mudou e porquê); 5. testes (as 5 verificações, resultado sim/não e evidência, sem copiar texto sensível); 6. revisão independente (feita/não feita, por quem); 7. limitações conhecidas; 8. degrau de autonomia e condições para subir; 9. validação humana em branco (Revisto por: ____ · Data: ____). Terminar a dizer que o registo é produzido pelo próprio Claude e não substitui a verificação do advogado.
 </pre><button type="button">Copiar</button></div>
  </details>
- <details class="skillblock"><summary>A · Agente orquestrador <code>agente-orquestrador-juridico</code></summary>
+ <details class="skillblock" id="sk-A"><summary>A · Agente orquestrador <code>agente-orquestrador-juridico</code></summary>
   <p class="sk-meta">Para a secção <a href="#orquestrador">A</a>. Ficheiro: <a href="skills/agente-orquestrador-juridico/SKILL.md" download>SKILL.md</a>. Não precisa das outras skills: se não estiverem na sua conta, aplica as regras mínimas de cada capacidade.</p>
   <div class="skillwrap"><pre class="skilltext" id="txt-orquestrador">---
 name: &quot;agente-orquestrador-juridico&quot;
@@ -842,7 +842,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Rever um contrato contra um playbook, ponto a ponto, e distinguir o que é linha vermelha do que é aceitável.</p>
  <div class="prompt">Use a skill de revisão contra playbook. Reveja o contrato anexo contra o playbook anexo. Quero a classificação de cada ponto do playbook e a folha de rasto.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 3. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="revisao-contra-playbook">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-3">abrir o item 3</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="revisao-contra-playbook">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Todos os pontos do playbook classificados, incluindo temas que o contrato nem refere (omissões).</li>
@@ -867,7 +867,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Preencher um modelo da firma com os factos do cliente, sem alterar o que o modelo fixa e sem inventar dados.</p>
  <div class="prompt">Use a skill de minuta. Prepare a minuta do contrato com o modelo anexo e os factos do caso anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 4. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="minuta-a-partir-de-template">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-4">abrir o item 4</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="minuta-a-partir-de-template">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Dados em falta marcados <code>[POR PREENCHER]</code>, nunca inventados.</li>
@@ -894,7 +894,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Comparar vários documentos numa tabela, com fonte e citação, e detectar o que não bate certo dentro de cada um e entre eles.</p>
  <div class="prompt">Use a skill de extracção. Quero uma tabela comparativa de partes, data, prazo, mudança de controlo, cessação, responsabilidade, exclusividade e garantias, com riscos, dos três contratos anexos. Quero a folha de rasto.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 5. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="extraccao-clausulas-riscos">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-5">abrir o item 5</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="extraccao-clausulas-riscos">Copiar instruções e pedido</button></p>
  <h3>Resultado esperado</h3>
  <ul>
   <li>Cada valor com cláusula e citação curta; «Não consta» onde o documento é omisso.</li>
@@ -919,7 +919,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Sintetizar decisões com citações exactas, distinguir o decidido do obiter dictum, e recusar inventar o que não foi fornecido.</p>
  <div class="prompt">Use a skill de jurisprudência. Em que condições pode o tribunal reduzir uma cláusula penal e a quem cabe o ónus da prova do excesso? Jurisdição: Portugal.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 6. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="sintese-jurisprudencia">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-6">abrir o item 6</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="sintese-jurisprudencia">Copiar instruções e pedido</button></p>
  <p>Depois faça uma segunda pergunta, fora do material:</p>
  <div class="prompt">E o que diz a jurisprudência sobre indemnização de clientela?<button type="button">Copiar</button></div>
  <h3>Resultado esperado</h3>
@@ -945,7 +945,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Identificar onde um texto parece mais seguro do que aquilo que demonstra. É triagem de fragilidades, <b>nunca</b> acusação de má-fé.</p>
  <div class="prompt">Use a skill detector de obfuscação. Modo: relatório ou parecer de terceiros. O texto principal e os documentos de apoio estão anexos.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 7. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="detector-obfuscacao">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-7">abrir o item 7</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="detector-obfuscacao">Copiar instruções e pedido</button></p>
  <p>Experimente também os dois textos em inglês incluídos no zip (Korematsu e Bybee). O primeiro traz um documento de apoio; o segundo não, e a folha de rasto deve dizer que não houve confronto.</p>
  <p>Ligação ao artefacto, com painel (apenas com a conta da firma): [POR PREENCHER: ligação]</p>
  <h3>Resultado esperado</h3>
@@ -971,7 +971,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Preparar uma audiência a partir dos autos: temas da prova, factos controvertidos com fonte, cronologia, inconsistências, testemunhas e perguntas. A skill não prevê o resultado e não prepara respostas para as testemunhas.</p>
  <div class="prompt">Use a skill de briefing de audiência. Sou advogado da Autora. Quero o briefing para a audiência de 14 de Janeiro de 2027, com a folha de rasto.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 8. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="briefing-audiencia">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-8">abrir o item 8</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="briefing-audiencia">Copiar instruções e pedido</button></p>
  <p>Repita com «Sou advogado da Ré». Depois, uma vez sem dizer de que parte é, e veja o que a skill faz.</p>
  <h3>Resultado esperado</h3>
  <ul>
@@ -997,7 +997,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </div>
  <p><b>Objectivo.</b> Calcular prazos só com as regras fornecidas, mostrando a conta, e ver a skill parar quando falta uma data. O regime é inventado: nenhum prazo ou feriado real deve ser usado.</p>
  <div class="prompt">Use a skill de cálculo de prazos. Calcule os prazos de cada notificação anexa, com o quadro e o calendário anexos.<button type="button">Copiar</button></div>
- <p class="semskill">A skill não está na sua conta? O texto está na <a href="#skills-texto">secção S</a>, item 9. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="calculo-prazos-quadro">Copiar instruções e pedido</button></p>
+ <p class="semskill">A skill não está na sua conta? O texto está mais acima, na secção S · Texto das skills: <a href="#sk-9">abrir o item 9</a>. Ou use o botão: copia as instruções da skill e o pedido acima; cole numa conversa nova e <b>anexe os documentos</b> deste exercício.<br><button type="button" class="semskill-btn" data-skill="calculo-prazos-quadro">Copiar instruções e pedido</button></p>
  <p>Depois faça um pedido fora do quadro:</p>
  <div class="prompt">E qual é o prazo para o recurso hierárquico?<button type="button">Copiar</button></div>
  <h3>Resultado esperado</h3>
@@ -1147,7 +1147,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
  </table></div>
  <h3>Teste 1 · Tarefa com duas capacidades</h3>
  <ol class="steps">
-  <li>Crie a skill a partir do texto da <a href="#skills-texto">secção S, item A</a>. Conversa nova.</li>
+  <li>Crie a skill <code>agente-orquestrador-juridico</code> na sua conta. O texto está mais acima, na secção S · Texto das skills, no último item da lista «Os textos»: <a href="#sk-A">abrir o item A · Agente orquestrador</a>. Descarregue o seu <code>SKILL.md</code> e siga os passos de «Como proceder» dessa secção. Depois abra uma conversa nova.</li>
   <li>Anexe: petição inicial, contestação, despacho de agendamento, notificação A, quadro de prazos e calendário de feriados (secção <a href="#ref">Referência</a>).</li>
   <li>Cole o pedido:
    <div class="prompt">Preciso de preparar a audiência e de saber que prazos correm a partir da Notificação A. Use o agente orquestrador jurídico. Represento a Ré.<button type="button">Copiar</button></div></li>
@@ -1191,7 +1191,7 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
   <div class="box"><b>Quem</b>O formador demonstra; os formandos repetem</div>
  </div>
  <p><b>Objectivo.</b> Correr sobre o mesmo NDA uma skill genérica, pensada para juristas de empresa nos Estados Unidos, e uma skill adaptada ao playbook do cliente, e comparar o que cada uma apanha, porquê e como se verifica.</p>
- <p>A <code>triage-nda</code> faz parte do plugin Legal da Anthropic. Se não a vir na sua conta, o plugin não está activo: avise o formador. As outras duas skills estão na <a href="#skills-texto">secção S</a>, itens 3 e 4.</p>
+ <p>A <code>triage-nda</code> faz parte do plugin Legal da Anthropic. Se não a vir na sua conta, o plugin não está activo: avise o formador. As outras duas skills estão mais acima, na secção S · Texto das skills: <a href="#sk-3">item 3</a> e <a href="#sk-4">item 4</a>.</p>
  <h3>Execução</h3>
  <ol>
   <li><b>Triagem.</b> Conversa nova. Anexe <b>só o NDA</b>, sem o playbook, de propósito. Cole o pedido:
@@ -1318,6 +1318,11 @@ Sob o título «Folha de rasto»: 1. identificação (nome do agente; capacidade
 </footer>
 
 <script>
+(function(){
+ function abrir(){var id=location.hash.slice(1); if(!id) return; var el=document.getElementById(id); if(!el) return;
+  var d=el.closest('details.skillblock'); if(d){d.open=true; d.scrollIntoView();}}
+ window.addEventListener('hashchange',abrir); abrir();
+})();
 document.querySelectorAll('.prompt button:not(#btn-criar-colar)').forEach(function(b){
   b.addEventListener('click',function(){
     var box=b.parentElement, txt=box.firstChild.textContent.trim();
