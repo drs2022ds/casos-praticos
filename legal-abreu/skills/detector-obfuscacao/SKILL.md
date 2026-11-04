@@ -13,7 +13,7 @@ Usar quando o utilizador fornece um texto e quer saber onde ele parece mais segu
    - Peça do próprio utilizador: o que o tribunal ou a contraparte poderiam objectar e como reforçar (juntar prova, concretizar o facto, reformular em linguagem directa, retirar a afirmação).
    - Relatório ou parecer de terceiros que sustenta uma decisão: que informação ou diligência pedir antes de decidir.
 2. Perguntar se há **documentos de apoio** (factos, anexos, regras internas, cronologia) para confrontar o texto. Se existirem, usá-los; se não, analisar só o texto principal e dizer que não houve confronto.
-3. Lembrar: usar apenas texto anonimizado ou fictício, salvo indicação em contrário da firma.
+3. Lembrar: usar apenas texto anonimizado ou fictício, salvo indicação em contrário da sociedade.
 
 ## Regras
 - Usar apenas o texto fornecido. Não introduzir legislação, jurisprudência ou factos externos.

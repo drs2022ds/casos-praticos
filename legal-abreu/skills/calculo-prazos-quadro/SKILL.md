@@ -5,7 +5,7 @@ description: "Calcular prazos a partir de um quadro de prazos, de uma notificaç
 
 # Cálculo de prazos a partir de um quadro
 
-Usar quando o utilizador fornece uma notificação (ou decisão) e quer saber até quando pode praticar um acto, com base no quadro de prazos da firma.
+Usar quando o utilizador fornece uma notificação (ou decisão) e quer saber até quando pode praticar um acto, com base no quadro de prazos da sociedade.
 
 ## Antes de começar
 Pedir, e confirmar que foram fornecidos: (1) o quadro de prazos ou norma aplicável, com a regra de contagem; (2) o documento da notificação; (3) o calendário de feriados. Se faltar o quadro ou o calendário, não calcular: dizer o que falta. Nunca usar a memória para prazos, regras de contagem ou feriados.

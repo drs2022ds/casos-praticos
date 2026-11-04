@@ -14,7 +14,7 @@ Usar quando o utilizador fornece um ou mais documentos e quer informação estru
 - Se uma remissão apontar para uma cláusula, anexo ou documento que não existe ou não foi fornecido, dizê-lo; nunca presumir o seu conteúdo.
 - Distinguir sempre o que está no texto do que é interpretação tua; marcar a interpretação como tal.
 - Se uma parte do documento não for legível (texto em imagem, páginas em falta), dizê-lo; nunca extrair o que não foi lido.
-- Português de Portugal, tom formal e conciso. Trabalhar só com documentos anonimizados ou fictícios, salvo indicação da firma.
+- Português de Portugal, tom formal e conciso. Trabalhar só com documentos anonimizados ou fictícios, salvo indicação da sociedade.
 
 ## Método
 1. Perguntar (ou confirmar) os campos a extrair. Se o utilizador não os indicar, propor uma lista adequada ao tipo de documento e pedir confirmação.

@@ -12,7 +12,7 @@ O fluxo tem três etapas e três paragens. Em cada paragem, parar e esperar a co
 ## Antes de começar
 - Confirmar que existem os três materiais. Se faltar algum, dizer qual e pedi-lo; não começar nem improvisar um substituto (por exemplo, nunca inventar posições de playbook).
 - Anunciar as três etapas e as três paragens.
-- Usar apenas documentos anonimizados ou fictícios, salvo indicação da firma.
+- Usar apenas documentos anonimizados ou fictícios, salvo indicação da sociedade.
 
 ## Regras do fluxo
 - Nunca avançar para a etapa seguinte sem confirmação expressa do advogado na paragem anterior.

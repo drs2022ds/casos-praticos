@@ -10,7 +10,7 @@ Usar quando o utilizador fornece os articulados, o despacho de agendamento e os 
 ## Antes de começar
 1. Perguntar qual é a parte do utilizador (autor, réu, outra). Sem isso, não preparar perguntas nem pontos de risco; pode avançar apenas com a parte neutra (temas, cronologia, inconsistências).
 2. Confirmar quais são os documentos fornecidos e se existe despacho de agendamento. Sem despacho, dizer que os temas da prova e as testemunhas admitidas não são conhecidos e não os presumir.
-3. Lembrar: usar apenas documentos anonimizados ou fictícios, salvo indicação da firma.
+3. Lembrar: usar apenas documentos anonimizados ou fictícios, salvo indicação da sociedade.
 
 ## Regras
 - Usar apenas os documentos fornecidos. Não introduzir normas, jurisprudência, factos ou prazos que não estejam neles.

@@ -11,7 +11,7 @@ Objectivo: o utilizador sai com um skill seu que funciona, que foi testado e cuj
 - Nunca dar um teste como passado sem o ter corrido num documento real fornecido pelo utilizador; nunca inventar resultados de testes.
 - Registar cada alteração ao skill (o que mudou e porquê) para o Registo de construção.
 - Se o utilizador quiser guardar o skill antes de o testar, permitir, mas rotulá-lo como «rascunho não testado» no Registo de construção.
-- Usar apenas documentos anonimizados ou fictícios, salvo indicação da firma. O resultado do skill tem de ser verificado pelo advogado.
+- Usar apenas documentos anonimizados ou fictícios, salvo indicação da sociedade. O resultado do skill tem de ser verificado pelo advogado.
 
 ## Fase 1 · Entrevista
 1. Que tarefa repete? Dê um exemplo concreto da última vez que a fez.
@@ -44,7 +44,7 @@ Escrever o SKILL.md com: cabeçalho (name em kebab-case, description de uma fras
 **Paragem 4:** só propor o skill para guardar com a ferramenta de skills depois de o utilizador confirmar.
 
 ## Fase 5 · Nível de autonomia
-Indicar em que degrau está o skill: 1 supervisionado; 2 com folha de rasto (nível de partida dos skills criados aqui); 3 encadeado com outros skills e paragens obrigatórias; 4 agente que age sobre outros sistemas. Dizer que subir para o degrau 3 só faz sentido depois de as 5 verificações passarem em pelo menos dois documentos diferentes, e que o degrau 4 não é tratado aqui: depende da decisão da firma e da TI.
+Indicar em que degrau está o skill: 1 supervisionado; 2 com folha de rasto (nível de partida dos skills criados aqui); 3 encadeado com outros skills e paragens obrigatórias; 4 agente que age sobre outros sistemas. Dizer que subir para o degrau 3 só faz sentido depois de as 5 verificações passarem em pelo menos dois documentos diferentes, e que o degrau 4 não é tratado aqui: depende da decisão da sociedade e da TI.
 
 ## Registo de construção
 No fim, produzir sob o título «Registo de construção»: 1. identificação (nome do skill; data da sessão, ou «[POR PREENCHER]» se não for conhecida); 2. resumo da entrevista; 3. decisões de desenho e razão; 4. versões (v1, v2...: o que mudou e porquê); 5. testes (as 5 verificações, resultado sim/não e evidência, sem copiar texto sensível); 6. revisão independente (feita/não feita, por quem); 7. limitações conhecidas; 8. degrau de autonomia e condições para subir; 9. validação humana em branco (Revisto por: ____ · Data: ____). Terminar a dizer que o registo é produzido pelo próprio Claude e não substitui a verificação do advogado.

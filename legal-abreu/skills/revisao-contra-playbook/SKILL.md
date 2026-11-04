@@ -11,7 +11,7 @@ Usar quando o utilizador fornece (a) um documento a rever (contrato, minuta, pol
 - Usar apenas os documentos fornecidos. Não inventar posições de playbook nem factos. Se faltar o playbook ou o critério, pedi-lo antes de começar; não improvisar um.
 - Citar sempre a cláusula (número e transcrição curta) e o ponto do playbook em que se baseia cada conclusão.
 - Escrever em português de Portugal, tom formal e conciso.
-- Trabalhar apenas com documentos anonimizados ou fictícios, salvo indicação em contrário da firma.
+- Trabalhar apenas com documentos anonimizados ou fictícios, salvo indicação em contrário da sociedade.
 - Se uma parte do documento não for legível (texto em imagem, páginas em falta, anexos não fornecidos), dizê-lo; nunca classificar o que não foi lido.
 
 ## Método

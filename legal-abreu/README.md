@@ -10,7 +10,7 @@ O plugin só lê e produz texto na conversa. Não envia, não grava, não apaga 
 |---|---|---|
 | `revisao-contra-playbook` | Classificar cada ponto de um playbook num contrato ou documento, propor alterações | Documento e playbook |
 | `extraccao-clausulas-riscos` | Tabela de campos e cláusulas, com riscos e lacunas, para um ou mais documentos | Um ou mais documentos |
-| `minuta-a-partir-de-template` | Preencher um modelo da firma com factos, sem alterar o que o modelo fixa | Modelo e factos |
+| `minuta-a-partir-de-template` | Preencher um modelo da sociedade com factos, sem alterar o que o modelo fixa | Modelo e factos |
 | `sintese-jurisprudencia` | Sintetizar decisões com citações exactas | Textos das decisões |
 | `detector-obfuscacao` | Assinalar linguagem que reduz a clareza e argumentos mais fracos do que parecem | Texto jurídico |
 | `briefing-audiencia` | Temas da prova, factos controvertidos, cronologia, inconsistências e perguntas | Articulados e documentos |
@@ -34,13 +34,13 @@ Quando falta um documento de que a skill depende (o playbook, o modelo, o quadro
 - Cada afirmação leva a referência ao documento e uma transcrição curta.
 - «Não consta» quando o documento é omisso; `[POR PREENCHER]` quando falta um dado.
 - Paragens obrigatórias antes de qualquer decisão que cabe ao advogado.
-- Documentos anonimizados ou fictícios, salvo indicação da firma.
+- Documentos anonimizados ou fictícios, salvo indicação da sociedade.
 - A folha de rasto é produzida pelo próprio Claude: orienta a verificação e não a substitui.
 
 ## Limites
 
 - É um rascunho de trabalho. Quem decide e responde é o advogado.
-- Não inclui documentos de exemplo, playbooks, modelos nem dados de nenhuma firma.
+- Não inclui documentos de exemplo, playbooks, modelos nem dados de nenhuma sociedade.
 - Não foi validado em contas de utilizadores finais; ver `CHANGELOG.md`.
 - A skill `criar-skill-juridico` e o agente orquestrador não dependem das outras skills, mas funcionam melhor com elas instaladas.
 

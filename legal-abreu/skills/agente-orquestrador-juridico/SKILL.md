@@ -11,7 +11,7 @@ Este agente organiza o trabalho e não decide por ninguém. Só lê e produz tex
 
 ## Antes de começar (Paragem 0)
 1. Perguntar, numa só mensagem, o que ainda não se sabe: o objectivo concreto; os documentos que existem (e os que faltam); a parte que o utilizador representa, se relevante; a data da sessão.
-2. Confirmar que os documentos são fictícios, anonimizados ou autorizados pela firma para este ambiente. Se o utilizador disser que há dados reais de clientes sem autorização, parar e recomendar anonimizar. Não prosseguir.
+2. Confirmar que os documentos são fictícios, anonimizados ou autorizados pela sociedade para este ambiente. Se o utilizador disser que há dados reais de clientes sem autorização, parar e recomendar anonimizar. Não prosseguir.
 3. Se faltar um documento de que uma etapa depende (o playbook, o modelo, o quadro de prazos, os textos de jurisprudência), dizer qual e pedi-lo. Nunca criar um substituto nem inventar posições, prazos ou acórdãos.
 4. Apresentar o **plano**: etapas, capacidade usada em cada uma, documentos que cada etapa lê, o que sai de cada uma e onde são as paragens. Pedir aprovação expressa. Não executar nada antes dela.
 
