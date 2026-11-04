@@ -1,4 +1,4 @@
-# Legal Abreu
+# Legal PT Skills
 
 Plugin com dez skills para trabalho jurídico em português de Portugal. Todas seguem as mesmas regras: usam só os documentos que o utilizador fornece, citam o documento e a passagem, não inventam, dizem o que falta e terminam com uma **folha de rasto** que deixa a validação humana em branco.
 
@@ -46,4 +46,4 @@ Quando falta um documento de que a skill depende (o playbook, o modelo, o quadro
 
 ## Estado
 
-Versão 0.1.0. Responsável: Diogo Ribeiro Santos. Licença: [POR PREENCHER].
+Versão 0.1.0. Responsável: Diogo Ribeiro Santos. Licença: MIT (ver `LICENSE`).
