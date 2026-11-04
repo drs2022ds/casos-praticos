@@ -1,6 +1,6 @@
 ---
 name: "detector-obfuscacao"
-description: "Analisar um texto jurídico (peça processual, parecer, relatório, proposta) e assinalar linguagem que reduz a clareza sobre o que está demonstrado e argumentos mais fracos do que parecem, com citação literal, gravidade, diligência sugerida e folha de rasto. Triagem de fragilidades, nunca acusação de má-fé."
+description: "Analisar um texto jurídico (peça processual, parecer, relatório, proposta) e assinalar linguagem que reduz a clareza sobre o que está demonstrado e argumentos mais fracos do que parecem, com citação literal, gravidade, diligência sugerida e folha de rasto. Usar para testar a solidez de um texto antes de o usar ou de decidir com base nele. Triagem de fragilidades, nunca acusação de má-fé."
 ---
 
 # Detector de obfuscação
@@ -13,7 +13,7 @@ Usar quando o utilizador fornece um texto e quer saber onde ele parece mais segu
    - Peça do próprio utilizador: o que o tribunal ou a contraparte poderiam objectar e como reforçar (juntar prova, concretizar o facto, reformular em linguagem directa, retirar a afirmação).
    - Relatório ou parecer de terceiros que sustenta uma decisão: que informação ou diligência pedir antes de decidir.
 2. Perguntar se há **documentos de apoio** (factos, anexos, regras internas, cronologia) para confrontar o texto. Se existirem, usá-los; se não, analisar só o texto principal e dizer que não houve confronto.
-3. Lembrar: usar apenas texto anonimizado ou fictício, salvo indicação em contrário da firma.
+3. Lembrar: usar apenas texto anonimizado ou fictício, salvo indicação em contrário da sociedade.
 
 ## Regras
 - Usar apenas o texto fornecido. Não introduzir legislação, jurisprudência ou factos externos.

@@ -1,11 +1,11 @@
 ---
 name: "calculo-prazos-quadro"
-description: "Calcular prazos a partir de um quadro de prazos, de uma notificação e de um calendário de feriados fornecidos, mostrando a conta passo a passo e uma folha de rasto. Pára se faltar a regra, a data de notificação ou o calendário."
+description: "Calcular prazos a partir de um quadro de prazos, de uma notificação e de um calendário de feriados fornecidos, mostrando a conta passo a passo e uma folha de rasto. Pára se faltar a regra, a data de notificação ou o calendário; nunca aplica prazos de memória."
 ---
 
 # Cálculo de prazos a partir de um quadro
 
-Usar quando o utilizador fornece uma notificação (ou decisão) e quer saber até quando pode praticar um acto, com base no quadro de prazos da firma.
+Usar quando o utilizador fornece uma notificação (ou decisão) e quer saber até quando pode praticar um acto, com base no quadro de prazos da sociedade.
 
 ## Antes de começar
 Pedir, e confirmar que foram fornecidos: (1) o quadro de prazos ou norma aplicável, com a regra de contagem; (2) o documento da notificação; (3) o calendário de feriados. Se faltar o quadro ou o calendário, não calcular: dizer o que falta. Nunca usar a memória para prazos, regras de contagem ou feriados.
@@ -29,7 +29,7 @@ Pedir, e confirmar que foram fornecidos: (1) o quadro de prazos ou norma aplicá
 6. Indicar alertas: dias suspensos, transferência por fim-de-semana ou feriado, remissões a artigos fora do quadro.
 
 ## Resultado
-1. Tabela: Notificação | Acto | Regra (artigo) | Data de notificação presumida (fonte) | Dias | Dias não contados | Data bruta | Ajuste | Data limite (dia da semana).
+1. Tabela: Notificação | Acto | Regra (artigo) | Data de notificação presumida (referência) | Dias | Dias não contados | Data bruta | Ajuste | Data limite (dia da semana).
 2. Cálculo passo a passo de cada prazo.
 3. Alertas e perguntas ao advogado (a data interna de segurança é decisão do advogado).
 4. Folha de rasto (ver abaixo), no fim e sob esse título.

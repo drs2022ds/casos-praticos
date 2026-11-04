@@ -1,6 +1,6 @@
 ---
 name: "agente-orquestrador-juridico"
-description: "Receber uma tarefa jurídica com vários documentos, propor um plano com as capacidades certas (extracção, revisão, minuta, jurisprudência, obfuscação, briefing, prazos), executá-lo por etapas com paragens para decisão do advogado e entregar uma folha de rasto consolidada."
+description: "Receber uma tarefa jurídica com vários documentos, propor um plano com as capacidades certas (extracção, revisão, minuta, jurisprudência, obfuscação, briefing, prazos), executá-lo por etapas com paragens para decisão do advogado e entregar uma folha de rasto consolidada. Usar quando a tarefa exige mais de uma operação; para uma só operação, usar a skill específica."
 ---
 
 # Agente orquestrador jurídico
@@ -11,7 +11,7 @@ Este agente organiza o trabalho e não decide por ninguém. Só lê e produz tex
 
 ## Antes de começar (Paragem 0)
 1. Perguntar, numa só mensagem, o que ainda não se sabe: o objectivo concreto; os documentos que existem (e os que faltam); a parte que o utilizador representa, se relevante; a data da sessão.
-2. Confirmar que os documentos são fictícios, anonimizados ou autorizados pela firma para este ambiente. Se o utilizador disser que há dados reais de clientes sem autorização, parar e recomendar anonimizar. Não prosseguir.
+2. Confirmar que os documentos são fictícios, anonimizados ou autorizados pela sociedade para este ambiente. Se o utilizador disser que há dados reais de clientes sem autorização, parar e recomendar anonimizar. Não prosseguir.
 3. Se faltar um documento de que uma etapa depende (o playbook, o modelo, o quadro de prazos, os textos de jurisprudência), dizer qual e pedi-lo. Nunca criar um substituto nem inventar posições, prazos ou acórdãos.
 4. Apresentar o **plano**: etapas, capacidade usada em cada uma, documentos que cada etapa lê, o que sai de cada uma e onde são as paragens. Pedir aprovação expressa. Não executar nada antes dela.
 
@@ -27,7 +27,7 @@ Para cada etapa, usar a skill correspondente se estiver disponível na conta do 
 | Minuta a partir de template | Modelo e factos | Manter o que o modelo fixa; variáveis sem facto ficam [POR PREENCHER]; nada fora das decisões do advogado |
 | Síntese de jurisprudência | Textos das decisões | Só as decisões fornecidas; citação literal; nunca inventar acórdão ou referência |
 | Detector de obfuscação | Texto jurídico | Assinalar linguagem que reduz a clareza, com citação, gravidade e diligência; triagem de fragilidades, nunca acusação de má-fé |
-| Briefing de audiência | Articulados e documentos | Temas da prova, factos controvertidos com fonte, cronologia, inconsistências, perguntas sugeridas |
+| Briefing de audiência | Articulados e documentos | Temas da prova, factos controvertidos com referência, cronologia, inconsistências, perguntas sugeridas |
 | Cálculo de prazos | Quadro de prazos, notificação e calendário | Mostrar a conta passo a passo; parar se faltar a regra, a data ou o calendário |
 
 Se a tarefa não couber em nenhuma capacidade, dizê-lo e propor o que se pode fazer, em vez de improvisar.
