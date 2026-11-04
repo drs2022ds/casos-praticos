@@ -1,6 +1,6 @@
 ---
 name: "minuta-a-partir-de-template"
-description: "Redigir uma minuta (contrato, carta, parecer, procuração) a partir de um modelo da firma e dos factos fornecidos, sem inventar dados nem alterar o que o modelo fixa, e produzir uma folha de rasto para auditoria."
+description: "Redigir uma minuta (contrato, carta, parecer, procuração) a partir de um modelo da sociedade e dos factos fornecidos, sem inventar dados nem alterar o que o modelo fixa, e produzir uma folha de rasto. Usar quando existe um modelo. Não usar para redigir sem modelo: pedir o modelo."
 ---
 
 # Minuta a partir de template
@@ -15,7 +15,7 @@ Usar quando o utilizador fornece um modelo ou precedente e os factos do caso (pa
 - Manter a numeração, a estrutura e o estilo do modelo.
 - Os factos vêm só do que o utilizador forneceu. Não presumir moradas, NIF, valores ou datas.
 - Quando os factos forem incoerentes entre si (por exemplo, percentagens que não somam 100%, datas incompatíveis), não escolher sozinho o valor correcto: deixar [POR PREENCHER] com a explicação e perguntar ao advogado.
-- Português de Portugal, tom jurídico formal. Trabalhar só com dados anonimizados ou fictícios, salvo indicação da firma.
+- Português de Portugal, tom jurídico formal. Trabalhar só com dados anonimizados ou fictícios, salvo indicação da sociedade.
 
 ## Método
 1. Identificar todas as variáveis do modelo (partes, objecto, valores, prazos, foro, anexos).
@@ -36,7 +36,7 @@ A folha de rasto serve para o advogado auditar o trabalho: mostra de onde veio c
 
 Estrutura fixa:
 1. **Identificação:** nome da skill; modelo usado (nome e versão, se constarem); documento ou mensagem com os factos; data da sessão (se não for conhecida, escrever «[POR PREENCHER]»).
-2. **Variáveis:** tabela Variável | Valor usado | Fonte (documento e frase) | Estado («facto fornecido», «[POR PREENCHER]» ou «pendente de decisão»); no fim, o total de variáveis do modelo e a confirmação de que a soma por estado é igual a esse total.
+2. **Variáveis:** tabela Variável | Valor usado | Referência (documento e frase) | Estado («facto fornecido», «[POR PREENCHER]» ou «pendente de decisão»); no fim, o total de variáveis do modelo e a confirmação de que a soma por estado é igual a esse total.
 3. **Cláusulas do modelo:** n.º de cláusulas; cláusulas fixas comparadas com o modelo e se ficaram sem alteração (sim/não, uma a uma); cláusulas opcionais incluídas ou excluídas, com a razão.
 4. **Conflitos e incoerências:** pedidos ou factos que chocam com cláusulas fixas; valores que não somam; datas incompatíveis. Indicar o que foi feito (por exemplo, «mantido o modelo») e que a decisão é do advogado.
 5. **Limitações:** o que não foi possível ler ou confirmar; pressupostos assumidos.

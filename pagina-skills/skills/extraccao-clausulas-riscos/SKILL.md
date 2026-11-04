@@ -1,6 +1,6 @@
 ---
 name: "extraccao-clausulas-riscos"
-description: "Extrair de contratos e documentos societários ou de due diligence os dados e cláusulas relevantes numa tabela estruturada, assinalando riscos e lacunas, com folha de rasto para auditoria."
+description: "Extrair de contratos e documentos societários ou de due diligence os dados e cláusulas relevantes numa tabela estruturada, assinalando riscos e lacunas, com folha de rasto. Usar para preencher campos fixos ou comparar vários documentos. Não usar para confrontar um documento com um playbook: para isso, a revisão contra playbook."
 ---
 
 # Extracção de cláusulas e riscos
@@ -9,12 +9,12 @@ Usar quando o utilizador fornece um ou mais documentos e quer informação estru
 
 ## Regras
 - Usar apenas os documentos fornecidos. Nunca inventar nem completar de memória uma cláusula.
-- Cada valor extraído leva a fonte: documento, cláusula ou página e uma transcrição curta.
+- Cada valor extraído leva a referência: documento, cláusula ou página e uma transcrição curta.
 - Se uma informação não consta do documento, escrever «Não consta» (não deixar em branco nem deduzir).
 - Se uma remissão apontar para uma cláusula, anexo ou documento que não existe ou não foi fornecido, dizê-lo; nunca presumir o seu conteúdo.
 - Distinguir sempre o que está no texto do que é interpretação tua; marcar a interpretação como tal.
 - Se uma parte do documento não for legível (texto em imagem, páginas em falta), dizê-lo; nunca extrair o que não foi lido.
-- Português de Portugal, tom formal e conciso. Trabalhar só com documentos anonimizados ou fictícios, salvo indicação da firma.
+- Português de Portugal, tom formal e conciso. Trabalhar só com documentos anonimizados ou fictícios, salvo indicação da sociedade.
 
 ## Método
 1. Perguntar (ou confirmar) os campos a extrair. Se o utilizador não os indicar, propor uma lista adequada ao tipo de documento e pedir confirmação.
@@ -25,7 +25,7 @@ Usar quando o utilizador fornece um ou mais documentos e quer informação estru
 
 ## Resultado
 1. Resumo curto: n.º de documentos, principais riscos.
-2. Tabela: Documento | Campo | Valor | Fonte (cláusula e citação) | Risco (alto/médio/baixo/nenhum).
+2. Tabela: Documento | Campo | Valor | Referência (cláusula e citação) | Risco (alto/médio/baixo/nenhum).
 3. Lista de riscos por ordem de gravidade, com a razão.
 4. Lacunas e perguntas ao advogado.
 5. Folha de rasto (ver abaixo), no fim e sob esse título.
@@ -36,7 +36,7 @@ Serve para o advogado auditar o trabalho. Só registar o que de facto foi feito;
 1. **Identificação:** nome da skill; lista dos documentos lidos (nome, tipo, data ou versão, se constarem); campos pedidos; data da sessão («[POR PREENCHER]» se não for conhecida).
 2. **Cobertura:** n.º de documentos lidos; n.º de campos; n.º de células da tabela (documentos × campos); quantas preenchidas com valor, quantas «Não consta», e confirmação de que a soma é igual ao total de células.
 3. **Rasto por documento:** cláusulas e anexos efectivamente lidos; remissões que não foi possível seguir (cláusula inexistente, anexo não fornecido).
-4. **Inconsistências detectadas:** dentro de cada documento e entre documentos, com a indicação das duas fontes.
+4. **Inconsistências detectadas:** dentro de cada documento e entre documentos, com a indicação das duas referências.
 5. **Limitações:** o que não foi lido ou ficou em falta (anexos, páginas, assinaturas); pressupostos assumidos; que interpretações foram marcadas como tal.
 6. **Decisões pendentes do advogado:** riscos que exigem decisão, perguntas em aberto.
 7. **Verificações feitas:** as perguntas da auto-verificação, com resposta sim/não e como se verificou.
@@ -45,7 +45,7 @@ Terminar com: a folha é produzida pelo próprio Claude, orienta a verificação
 
 ## Auto-verificação
 - Todos os campos foram preenchidos para todos os documentos?
-- Cada valor tem fonte e citação?
+- Cada valor tem referência e citação?
 - O que não consta está marcado «Não consta»?
 - Nada foi afirmado sem apoio no texto?
 - A folha de rasto só regista o que foi mesmo feito, a soma das células confere e a validação humana ficou em branco?

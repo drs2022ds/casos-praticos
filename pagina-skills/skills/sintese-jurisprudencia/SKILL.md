@@ -1,6 +1,6 @@
 ---
 name: "sintese-jurisprudencia"
-description: "Sintetizar jurisprudência e doutrina a partir de decisões fornecidas pelo utilizador, com citações exactas, sem inventar acórdãos nem referências, e com folha de rasto para auditoria."
+description: "Sintetizar jurisprudência e doutrina a partir de decisões fornecidas pelo utilizador, com citações exactas, sem inventar acórdãos nem referências, e com folha de rasto. Usar só com as decisões fornecidas. Não usar para pesquisar jurisprudência nem para citar acórdãos de memória."
 ---
 
 # Síntese de jurisprudência
@@ -28,7 +28,7 @@ Usar quando o utilizador fornece decisões ou textos (anexos ou colados) e uma q
 3. Orientações e divergências.
 4. Lacunas: o que as decisões fornecidas não cobrem; pesquisa adicional recomendada.
 5. Folha de rasto (ver abaixo), no fim e sob esse título.
-6. Nota final: verificar sempre as citações na fonte e a vigência das normas antes de usar em peça.
+6. Nota final: verificar sempre as citações no texto original da decisão e a vigência das normas antes de usar em peça.
 
 ## Folha de rasto
 Serve para o advogado auditar o trabalho. Só registar o que de facto foi feito; nunca declarar uma verificação que não foi feita; não preencher a validação humana. Estrutura fixa:
