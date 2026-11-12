@@ -2,6 +2,7 @@ import os, re, shutil, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import areas as A
 import areas_ct as C
+import nucleo as NU
 import areas_mt as MT
 import mce_dados as MD
 import ti_dados as TD2
@@ -111,7 +112,7 @@ def pagina(a):
 <section id="comecar">
  <h2><span class="n">0</span>Começar</h2>
  <div class="aviso"><b>Piloto, com dados fictícios.</b> {esc(a['cenario'])} Esta página é um ponto de partida para validar com a área: as skills e os resultados esperados devem ser revistos por quem conhece o trabalho antes de qualquer uso real.</div>
- <p>Esta página segue o mesmo método do <a href="../../index.html">guia principal</a>: <a href="../../index.html#escada">escada de autonomia</a>, <a href="../../index.html#rasto">folha de rasto</a>, <a href="../../index.html#criar">criar a minha skill</a> e <a href="../../index.html#ficha">ficha de autonomia</a>. Não se repetem aqui. Cada exercício tem objectivo, material, pedido, resultado esperado e discussão. <b>O formador demonstra, os formandos repetem, o grupo compara e valida.</b></p>
+ <p>Esta página segue o mesmo método do <a href="../nucleo/index.html">núcleo comum</a>: <a href="../nucleo/index.html#escada">escada de autonomia</a>, <a href="../nucleo/index.html#rasto">folha de rasto</a>, <a href="../nucleo/index.html#criar">criar a minha skill</a> e <a href="../nucleo/index.html#ficha">ficha de autonomia</a>. Não se repetem aqui. Cada exercício tem objectivo, material, pedido, resultado esperado e discussão. <b>O formador demonstra, os formandos repetem, o grupo compara e valida.</b></p>
  <h3>Cuidados desta área</h3>
  {cuid}
  <div class="meta">
@@ -123,7 +124,7 @@ def pagina(a):
 
 <section id="skills-texto">
  <h2><span class="n">S</span>Texto das skills: crie-as na sua conta</h2>
- <p>O processo é o mesmo do <a href="../../index.html#skills-texto">guia principal</a>: descarregar o <code>SKILL.md</code>, pôr numa pasta com o nome da skill, comprimir em ZIP e carregar em <em>Personalizar (<i>Customize</i>) › Skills</em>. Versão dos textos: {VERSAO}. Se o formador corrigir um texto, volte a copiá-lo.</p>
+ <p>O processo é o mesmo do <a href="../nucleo/index.html#skills-como">núcleo comum</a>: descarregar o <code>SKILL.md</code>, pôr numa pasta com o nome da skill, comprimir em ZIP e carregar em <em>Personalizar (<i>Customize</i>) › Skills</em>. Versão dos textos: {VERSAO}. Se o formador corrigir um texto, volte a copiá-lo.</p>
  <h3>Os textos</h3>
  {chr(10).join(" " + b for b in blocos)}
 </section>
@@ -137,7 +138,7 @@ def pagina(a):
   <div class="box"><b>Material</b>{esc(o['material'])}</div>
   <div class="box"><b>Degrau</b>3 · fluxo com paragens</div>
  </div>
- <p><b>Objectivo.</b> {esc(o['objectivo'])} Contexto: <a href="../../index.html#degrau3">fluxo encadeado</a> e <a href="../../index.html#orquestrador">orquestrador</a> no guia principal.</p>
+ <p><b>Objectivo.</b> {esc(o['objectivo'])} Contexto: <a href="../nucleo/index.html#fluxo">fluxo encadeado com paragens</a>, no núcleo comum.</p>
  <h3>Teste 1 · A tarefa completa</h3>
  {t1}
  <p class="semskill">A skill não está na sua conta? <a href="#sk-A">Abrir o texto</a>. Ou use o botão e <b>anexe os ficheiros</b>.<br><button type="button" class="semskill-btn" data-skill="{o['name']}" data-prompt="p-orq1">Copiar instruções e pedido</button></p>
@@ -188,7 +189,7 @@ def pagina(a):
   <tr><td>[POR PREENCHER]</td><td>Marcador de um dado em falta. Um marcador no sítio certo é um bom resultado.</td></tr>
   <tr><td>Paragem</td><td>Ponto em que o fluxo espera pela decisão do responsável.</td></tr>
  </table></div>
- <p><a href="../index.html">Voltar à lista de áreas</a> · <a href="../../index.html">Guia principal</a></p>
+ <p><a href="../index.html">Voltar à lista de áreas</a> · <a href="../nucleo/index.html">Núcleo comum</a></p>
 </section>
 
 </main>
@@ -224,11 +225,11 @@ def indice():
 <main>
 <section id="areas">
  <h2><span class="n">·</span>Áreas</h2>
- <div class="aviso"><b>Piloto.</b> O método (escada de autonomia, folha de rasto, criação de skills e ficha) está no <a href="../index.html">guia principal</a> e aplica-se a todas as áreas. Estas páginas só acrescentam os exercícios de cada área.</div>
+ <div class="aviso"><b>Piloto.</b> O método (escada de autonomia, folha de rasto, criação de skills e ficha) está no <a href="nucleo/index.html">núcleo comum</a> e aplica-se a todas as áreas. Estas páginas só acrescentam os exercícios de cada área.</div>
 {cards}
  <p>Finanças, Contabilidade e Tesouraria partilham algumas skills e parte do material.</p>
  <h3>Que skills tenho de criar?</h3>
- <p>Só as da sua área, listadas abaixo: seis skills, uma por exercício, e o agente orquestrador. Cada página explica como criá-las (secção S) ou como usar o botão «Copiar instruções e pedido», que dispensa a criação. As skills jurídicas do guia principal destinam-se aos advogados e não são necessárias aqui. O exercício B, com um plugin da Anthropic, é facultativo e depende de o formador o confirmar.</p>
+ <p>Só as da sua área, listadas abaixo: seis skills, uma por exercício, e o agente orquestrador. Cada página explica como criá-las (secção S) ou como usar o botão «Copiar instruções e pedido», que dispensa a criação. As skills jurídicas do <a href="../index.html">guia principal</a> destinam-se aos advogados e não são necessárias aqui. Para criar uma skill sua, use a <code>criar-skill</code> do <a href="nucleo/index.html#criar">núcleo comum</a>. O exercício B, com um plugin da Anthropic, é facultativo e depende de o formador o confirmar.</p>
  <div class="tw"><table>
   <tr><th>Área</th><th>Skills da área (por ordem dos exercícios)</th></tr>
 {tabela}
@@ -258,5 +259,6 @@ if __name__ == "__main__":
         for nome in sorted(nomes):
             shutil.copytree(_dir_skill(pasta_sk, nome), os.path.join(d, "skills", nome))
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(pagina(a))
+    NU.gerar(SAIDA, css())
     open(os.path.join(SAIDA, "index.html"), "w", encoding="utf-8").write(indice())
     print("ok")
