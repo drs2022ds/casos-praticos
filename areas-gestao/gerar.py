@@ -2,6 +2,9 @@ import os, re, shutil, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import areas as A
 import areas_ct as C
+import areas_mt as MT
+import mce_dados as MD
+import ti_dados as TD2
 import financas_dados as F
 import rh_dados as H
 
@@ -199,6 +202,11 @@ def pagina(a):
 
 def indice():
     cards = "\n".join(f'''  <div class="box"><h3><a href="{a['pasta']}/index.html">{esc(a['titulo'])}</a></h3><p>{esc(a['resumo'])}</p></div>''' for a in AREAS)
+    linhas = []
+    for a in AREAS:
+        nomes = [e['name'] for e in a['exercicios']] + [a['orq']['name']]
+        linhas.append(f'  <tr><td><a href="{a["pasta"]}/index.html">{esc(a["titulo"])}</a></td><td>' + "<br>".join(f"<code>{n}</code>" for n in nomes) + "</td></tr>")
+    tabela = "\n".join(linhas)
     return f'''<!doctype html>
 <html lang="pt-PT">
 <head>
@@ -211,23 +219,30 @@ def indice():
 <header class="top"><div class="in">
  <div class="kicker">Formação em IA generativa · Abreu Advogados · Piloto</div>
  <h1>Skills para as áreas de gestão</h1>
- <p>Páginas de exercícios, com dados fictícios, para as áreas de apoio. Quatro áreas em piloto; as restantes seguem depois da validação.</p>
+ <p>Páginas de exercícios, com dados fictícios, para as áreas de apoio. Seis áreas em piloto, a validar com cada área.</p>
 </div></header>
 <main>
 <section id="areas">
  <h2><span class="n">·</span>Áreas</h2>
  <div class="aviso"><b>Piloto.</b> O método (escada de autonomia, folha de rasto, criação de skills e ficha) está no <a href="../index.html">guia principal</a> e aplica-se a todas as áreas. Estas páginas só acrescentam os exercícios de cada área.</div>
 {cards}
- <p>Previstas: marketing, comunicação e eventos, e transformação digital e IT. Finanças, Contabilidade e Tesouraria partilham algumas skills e parte do material.</p>
+ <p>Finanças, Contabilidade e Tesouraria partilham algumas skills e parte do material.</p>
+ <h3>Que skills tenho de criar?</h3>
+ <p>Só as da sua área, listadas abaixo: seis skills, uma por exercício, e o agente orquestrador. Cada página explica como criá-las (secção S) ou como usar o botão «Copiar instruções e pedido», que dispensa a criação. As skills jurídicas do guia principal destinam-se aos advogados e não são necessárias aqui. O exercício B, com um plugin da Anthropic, é facultativo e depende de o formador o confirmar.</p>
+ <div class="tw"><table>
+  <tr><th>Área</th><th>Skills da área (por ordem dos exercícios)</th></tr>
+{tabela}
+ </table></div>
 </section>
 </main>
 </body>
 </html>
 '''
 
-AREAS = A.AREAS + [C.CONT, C.TES]
+AREAS = [A.FIN, C.CONT, C.TES, A.RH, MT.MKT, MT.TI]
 MAPA = {"financas": ("financas", F.gerar_materiais), "rh": ("rh", H.gerar_materiais),
-        "contabilidade": ("contabilidade", C.CONT["materiais_fn"]), "tesouraria": ("tesouraria", C.TES["materiais_fn"])}
+        "contabilidade": ("contabilidade", C.CONT["materiais_fn"]), "tesouraria": ("tesouraria", C.TES["materiais_fn"]),
+        "marketing": ("marketing", MD.gerar_materiais), "ti": ("ti", TD2.gerar_materiais)}
 
 if __name__ == "__main__":
     if os.path.isdir(SAIDA):
