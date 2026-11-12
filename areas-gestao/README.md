@@ -14,3 +14,5 @@ Requisitos: Python 3, `openpyxl`, `python-docx`.
 - `*_dados.py`: dados e cálculos (`contabilidade_dados.py` e `tesouraria_dados.py` reutilizam `financas_dados.py`); `mce_dados.py` e `ti_dados.py`: Marketing/Eventos e IT; `areas_mt.py`: exercícios dessas duas áreas; `areas_ct.py`: exercícios de Contabilidade e Tesouraria, que partilham três skills cada com Finanças (campo `partilhadas`); `skills_*.py`: texto das skills; `areas.py`: exercícios e resultados esperados; `gerar.py`: HTML (reutiliza o CSS e o JavaScript da página principal).
 - Para acrescentar uma área: dados, skills, entrada em `areas.py` e em `gerar.py`.
 - Estado: piloto. O conteúdo deve ser revisto por quem conhece cada área; o plugin da Anthropic do exercício B (`finance`, `human-resources`) tem de ser confirmado antes da sessão.
+
+- `nucleo.py` e `nucleo/`: núcleo comum neutro (escada, folha de rasto, fluxo com paragens, criar skill, ficha, agentes), gerado em `areas/nucleo/`; reaproveita as secções da página principal e troca a linguagem jurídica. A skill `criar-skill` é a versão neutra de `criar-skill-juridico`.
