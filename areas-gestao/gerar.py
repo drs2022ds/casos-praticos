@@ -1,6 +1,7 @@
 import os, re, shutil, html, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import areas as A
+import areas_ct as C
 import financas_dados as F
 import rh_dados as H
 
@@ -23,8 +24,12 @@ def js():
     seg2 = t[t.index("document.querySelectorAll('.skillwrap button')"):t.index("(function(){\n  var KEY=")]
     return seg + seg2
 
+def _dir_skill(area_dir, nome):
+    p = os.path.join(AQUI, area_dir, "skills", nome)
+    return p if os.path.isdir(p) else os.path.join(AQUI, "financas", "skills", nome)
+
 def md_skill(area_dir, nome):
-    return open(os.path.join(AQUI, area_dir, "skills", nome, "SKILL.md"), encoding="utf-8").read()
+    return open(os.path.join(_dir_skill(area_dir, nome), "SKILL.md"), encoding="utf-8").read()
 
 def lista(itens):
     return "<ul>\n" + "\n".join(f"  <li>{esc(i)}</li>" for i in itens) + "\n </ul>"
@@ -193,7 +198,7 @@ def pagina(a):
 '''
 
 def indice():
-    cards = "\n".join(f'''  <div class="box"><h3><a href="{a['pasta']}/index.html">{esc(a['titulo'])}</a></h3><p>{esc(a['resumo'])}</p></div>''' for a in A.AREAS)
+    cards = "\n".join(f'''  <div class="box"><h3><a href="{a['pasta']}/index.html">{esc(a['titulo'])}</a></h3><p>{esc(a['resumo'])}</p></div>''' for a in AREAS)
     return f'''<!doctype html>
 <html lang="pt-PT">
 <head>
@@ -206,32 +211,37 @@ def indice():
 <header class="top"><div class="in">
  <div class="kicker">Formação em IA generativa · Abreu Advogados · Piloto</div>
  <h1>Skills para as áreas de gestão</h1>
- <p>Páginas de exercícios, com dados fictícios, para as áreas de apoio. Duas áreas em piloto; as restantes seguem depois da validação.</p>
+ <p>Páginas de exercícios, com dados fictícios, para as áreas de apoio. Quatro áreas em piloto; as restantes seguem depois da validação.</p>
 </div></header>
 <main>
 <section id="areas">
  <h2><span class="n">·</span>Áreas</h2>
  <div class="aviso"><b>Piloto.</b> O método (escada de autonomia, folha de rasto, criação de skills e ficha) está no <a href="../index.html">guia principal</a> e aplica-se a todas as áreas. Estas páginas só acrescentam os exercícios de cada área.</div>
 {cards}
- <p>Previstas: contabilidade, tesouraria, marketing, comunicação e eventos, transformação digital e IT. Contabilidade e tesouraria partilham parte do material de Finanças.</p>
+ <p>Previstas: marketing, comunicação e eventos, e transformação digital e IT. Finanças, Contabilidade e Tesouraria partilham algumas skills e parte do material.</p>
 </section>
 </main>
 </body>
 </html>
 '''
 
+AREAS = A.AREAS + [C.CONT, C.TES]
+MAPA = {"financas": ("financas", F.gerar_materiais), "rh": ("rh", H.gerar_materiais),
+        "contabilidade": ("contabilidade", C.CONT["materiais_fn"]), "tesouraria": ("tesouraria", C.TES["materiais_fn"])}
+
 if __name__ == "__main__":
     if os.path.isdir(SAIDA):
         shutil.rmtree(SAIDA)
     os.makedirs(SAIDA)
-    mapa = {"financas": ("financas", F), "rh": ("rh", H)}
-    for a in A.AREAS:
-        a['pasta_skills'] = mapa[a['id']][0]
+    for a in AREAS:
+        pasta_sk, mat = MAPA[a['id']]
+        a['pasta_skills'] = pasta_sk
         d = os.path.join(SAIDA, a['pasta'])
         os.makedirs(d)
-        mapa[a['id']][1].gerar_materiais(os.path.join(d, "materiais"))
-        for nome in os.listdir(os.path.join(AQUI, a['pasta_skills'], "skills")):
-            shutil.copytree(os.path.join(AQUI, a['pasta_skills'], "skills", nome), os.path.join(d, "skills", nome))
+        mat(os.path.join(d, "materiais"))
+        nomes = set(os.listdir(os.path.join(AQUI, pasta_sk, "skills"))) | set(a.get("partilhadas", []))
+        for nome in sorted(nomes):
+            shutil.copytree(_dir_skill(pasta_sk, nome), os.path.join(d, "skills", nome))
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(pagina(a))
     open(os.path.join(SAIDA, "index.html"), "w", encoding="utf-8").write(indice())
     print("ok")
