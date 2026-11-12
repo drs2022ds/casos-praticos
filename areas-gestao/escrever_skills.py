@@ -100,8 +100,8 @@ def escrever(area, nome, texto):
 
 
 if __name__ == "__main__":
-    import skills_financas, skills_rh
-    for area, mod in (("financas", skills_financas), ("rh", skills_rh)):
+    import skills_financas, skills_rh, skills_contabilidade, skills_tesouraria
+    for area, mod in (("financas", skills_financas), ("rh", skills_rh), ("contabilidade", skills_contabilidade), ("tesouraria", skills_tesouraria)):
         for nome, texto in mod.SKILLS.items():
             escrever(area, nome, texto)
         print(area, len(mod.SKILLS))
