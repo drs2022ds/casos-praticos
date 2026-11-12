@@ -630,7 +630,7 @@ function renderRes(){
   box.append(tb);
   const pane=state.tab==='texto'?textView():state.tab==='achados'?tableView():state.tab==='lacuna'?gapView():dilView();
   box.append(h('div',{class:'panel'},pane));
-  if(!R.local&&state.owner&&state.sample==='hz')box.append(gabarito());
+  if(!R.local&&state.owner&&state.sample==='hz')box.append(solucaoReferencia());
   box.append(h('details',{class:'gl panel'},h('summary',{text:'O que significa cada técnica'}),
     h('dl',{},...Object.values(TEC).flatMap(t=>[h('dt',{text:t.l+' · '+GRP[t.g].toLowerCase()}),h('dd',{text:t.d})]))));
   root.append(box);
@@ -792,9 +792,9 @@ const GAB=[
  ['Risco bancário',/banco|cl[aá]usula|consentimento|financiador|financiamento/i],
  ['Competência e gestão corrente',/compet[eê]ncia|gest[aã]o\s+(?:corrente|ordin[aá]ria)|curso\s+ordin[aá]rio|regulamento|assembleia/i],
  ['Parecer condicional',/parecer|nota\s+jur[ií]dica|n[aã]o\s+se\s+afigura|pressupost|condicion/i]];
-function gabarito(){
+function solucaoReferencia(){
   const A=state.result.achados.filter(a=>a.sev!=='baixa');
-  return h('div',{class:'panel flat'},h('h3',{text:'Cobertura do gabarito (só para o formador)'}),
+  return h('div',{class:'panel flat'},h('h3',{text:'Cobertura da solução de referência (só para o formador)'}),
     h('div',{class:'gab'},...GAB.map(([n,re])=>{const hit=A.some(a=>re.test(a.trecho+' '+a.porque+' '+a.evid));return h('div',{},h('b',{text:hit?'✓':'✗'}),h('span',{text:n}));})),
     h('p',{class:'hint',text:'Verificação por palavras-chave sobre achados de gravidade alta ou média. Confirme à mão.'}));
 }
