@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Áreas de gestão · Skills · Abreu Advogados</title>
+<style>
+:root{
+  --bg:#faf8f3; --fg:#1b2333; --muted:#566074; --navy:#14213d; --gold:#b8892b; --gold-soft:#f3e9d2;
+  --card:#ffffff; --line:#ddd6c5; --code:#f1ede2; --ok:#2f6b4f; --warn:#8a5a12; --stop:#8f2a3a;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10151f; --fg:#e8e6df; --muted:#a3acbd; --navy:#e8d9b0; --gold:#d3a846; --gold-soft:#262218;
+    --card:#171e2c; --line:#2d374a; --code:#1d2638; --ok:#7fc4a0; --warn:#e0b567; --stop:#e48a99; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Calibri,"Carlito","Segoe UI",system-ui,sans-serif}
+a{color:var(--navy)}
+h1,h2,h3{font-family:Cambria,"Caladea",Georgia,serif;color:var(--navy);line-height:1.25;text-wrap:balance}
+header.top{background:var(--navy);color:#f6f0e0;padding:2.2rem 1.25rem 1.8rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header.top{background:#0b0f18;color:#e8e6df;border-bottom:1px solid var(--line)}}
+header.top .in{max-width:980px;margin:0 auto}
+header.top h1{color:#fff;font-size:clamp(1.6rem,4vw,2.3rem);margin:.2rem 0 .6rem}
+header.top p{margin:.2rem 0;max-width:68ch;color:#e9e2cf}
+.kicker{letter-spacing:.12em;text-transform:uppercase;font-size:.78rem;color:#e3c27a}
+nav.idx{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+nav.idx .in{max-width:980px;margin:0 auto;padding:.55rem 1.25rem;display:flex;gap:.4rem}
+nav.idx a{color:var(--fg);text-decoration:none;font-size:.88rem;padding:.25rem .65rem;border:1px solid var(--line);border-radius:999px}
+nav.idx a:hover{border-color:var(--gold);color:var(--gold)}
+main{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+section{padding-top:1.4rem;margin-top:1.2rem;border-top:2px solid var(--gold)}
+section h2{font-size:1.5rem;margin:.2rem 0 .8rem;display:flex;gap:.7rem;align-items:baseline}
+section h2 .n{color:var(--gold);font-size:1.1rem;min-width:1.8rem}
+h3{font-size:1.1rem;margin:1.3rem 0 .4rem}
+p,li{max-width:76ch}
+.aviso{background:var(--gold-soft);border-left:4px solid var(--gold);padding:.7rem 1rem;border-radius:4px;margin:1rem 0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem 1.1rem;margin:.9rem 0}
+.box h3{margin-top:0}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:.9rem 0}
+.meta .box{margin:0}
+.meta b{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+.tw{overflow-x:auto;margin:.8rem 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+th,td{padding:.55rem .7rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--navy);color:#fff;font-weight:600;font-size:.85rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) th{color:#10151f}}
+tr:last-child td{border-bottom:0}
+.prompt{position:relative;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:.8rem 3.4rem .8rem .9rem;margin:.6rem 0;font:.93rem/1.5 Consolas,"Cascadia Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.prompt button{position:absolute;top:.45rem;right:.45rem;font:.75rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:4px;padding:.2rem .5rem;cursor:pointer}
+.prompt button:hover{border-color:var(--gold)}
+.skillblock{margin:.5rem 0}
+.skillblock summary code{font-size:.85rem;color:var(--muted);margin-left:.4rem}
+.sk-meta{font-size:.9rem;color:var(--muted);margin:.3rem 0}
+.skillwrap{position:relative}
+.skilltext{background:var(--code);border:1px solid var(--line);border-radius:6px;padding:.8rem .9rem;margin:0;font:.85rem/1.5 Consolas,"Cascadia Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere;max-height:24rem;overflow:auto}
+.skillwrap button{position:absolute;top:.45rem;right:1.2rem;font:.75rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:4px;padding:.2rem .5rem;cursor:pointer}
+.skillwrap button:hover{border-color:var(--gold)}
+.tag{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:.05rem .4rem;margin-right:.3rem;border:1px solid currentColor}
+.t1{color:var(--ok)}.t2{color:var(--warn)}.t3{color:var(--stop)}
+ol.steps{counter-reset:s;list-style:none;padding:0}
+ol.steps li{counter-increment:s;position:relative;padding:.1rem 0 .5rem 2.4rem}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:.05rem;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--gold);color:#fff;text-align:center;font-weight:700;font-size:.9rem;line-height:1.7rem}
+ul.dl{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.4rem .8rem}
+ul.dl a{color:var(--fg);text-decoration:none;display:block;padding:.4rem .6rem;border:1px solid var(--line);border-radius:6px;background:var(--card);overflow-wrap:anywhere;font-size:.92rem}
+ul.dl a:hover{border-color:var(--gold)}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:.8rem;margin:1rem 0}
+.ladder .box{margin:0;border-top:4px solid var(--gold)}
+.ladder .box b.l{display:block;font-size:.78rem;letter-spacing:.08em;color:var(--gold);text-transform:uppercase}
+.fill{border-bottom:1px solid var(--muted);display:inline-block;min-width:12ch}
+.ficha .row{display:grid;grid-template-columns:minmax(150px,230px) 1fr;gap:.4rem .8rem;border-bottom:1px dashed var(--line);padding:.55rem 0}
+.ficha .row b{font-size:.9rem}
+.ficha .line{border-bottom:1px solid var(--muted);height:1.5rem;margin-bottom:.35rem}
+.ficha .cb{margin-right:1rem;display:inline-block}
+.ficha .row>*{min-width:0}
+.ficha input[type=text],.ficha textarea{width:100%;font:inherit;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:5px;padding:.4rem .55rem;resize:vertical}
+.ficha textarea{min-height:2.6rem}
+.ficha input[type=text]:focus,.ficha textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ficha .cb input{margin-right:.35rem;accent-color:var(--gold)}
+.fa-actions{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
+.fa-actions button{font:600 .9rem Calibri,system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:6px;padding:.45rem .9rem;cursor:pointer}
+.fa-actions button:hover{border-color:var(--gold)}
+#fa-msg{font-size:.88rem;color:var(--muted)}
+.tw .sub{font-weight:400;font-size:.8rem;color:var(--muted)}
+table.sg th .sub{color:inherit;opacity:.85}
+table.sg td.nv{text-align:center;font-size:.85rem;white-space:nowrap}
+table.sg td.ob{font-weight:700;color:var(--ok)}
+table.sg td.re{color:var(--warn)}
+table.sg td.na{color:var(--muted)}
+.ficha .hint{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.25rem}
+.semskill{font-size:.88rem;border-left:3px solid var(--line);padding:.2rem 0 .2rem .8rem;margin:.4rem 0 .8rem;color:var(--muted)}
+.semskill-btn{margin-top:.4rem;font:inherit;font-size:.85rem;padding:.3rem .7rem;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg,inherit);cursor:pointer}
+table.sg th{text-align:center}
+table.sg th:first-child{text-align:left}
+details{margin:.6rem 0}
+summary{cursor:pointer;font-weight:600;color:var(--navy)}
+footer{max-width:980px;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+@media (max-width:640px){.ficha .row{grid-template-columns:1fr}}
+@media print{
+  nav.idx,header.top,.prompt button,.skillwrap button,.semskill,.fa-actions,section:not(#ficha){display:none}
+  section#ficha{display:block;border:0}
+  body{background:#fff;color:#000}
+  .ficha input[type=text],.ficha textarea{border:0;border-bottom:1px solid #000;border-radius:0;background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+ <div class="kicker">Formação em IA generativa · Abreu Advogados · Piloto</div>
+ <h1>Skills para as áreas de gestão</h1>
+ <p>Páginas de exercícios, com dados fictícios, para as áreas de apoio. Duas áreas em piloto; as restantes seguem depois da validação.</p>
+</div></header>
+<main>
+<section id="areas">
+ <h2><span class="n">·</span>Áreas</h2>
+ <div class="aviso"><b>Piloto.</b> O método (escada de autonomia, folha de rasto, criação de skills e ficha) está no <a href="../index.html">guia principal</a> e aplica-se a todas as áreas. Estas páginas só acrescentam os exercícios de cada área.</div>
+  <div class="box"><h3><a href="financas/index.html">Finanças, contabilidade e tesouraria</a></h3><p>Seis skills e um agente orquestrador para o dia-a-dia de Finanças, Contabilidade e Tesouraria: desvios orçamentais, reconciliação, verificação de facturas, lançamentos, previsão de tesouraria e resumo para a direcção.</p></div>
+  <div class="box"><h3><a href="recursos-humanos/index.html">Recursos humanos</a></h3><p>Seis skills e um agente orquestrador para Recursos Humanos: triagem de candidaturas, guião de entrevista, plano de integração, síntese de comentários de avaliação, respostas com base na política interna e indicadores de pessoas.</p></div>
+ <p>Previstas: contabilidade, tesouraria, marketing, comunicação e eventos, transformação digital e IT. Contabilidade e tesouraria partilham parte do material de Finanças.</p>
+</section>
+</main>
+</body>
+</html>

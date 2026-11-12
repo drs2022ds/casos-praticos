@@ -44,7 +44,7 @@ try:
         check(pg.locator(".m.s-alta").count() >= 3, "marcas de gravidade alta no texto anotado")
         pg.click("button.tab:has-text('Achados')") if pg.locator("button.tab:has-text('Achados')").count() else None
         check(pg.locator("table tr").count() >= 6, "tabela de achados com %d linhas" % pg.locator("table tr").count())
-        check(pg.locator("text=Cobertura do gabarito").count() == 0, "participante NÃO vê o gabarito")
+        check(pg.locator("text=Cobertura da solução de referência").count() == 0, "participante NÃO vê a solução de referência")
         with pg.expect_download(timeout=5000) as d:
             pg.click("button:has-text('Exportar relatório')")
         check(d.value.suggested_filename == "triagem-obfuscacao.md", "exportar relatório descarrega .md")
@@ -55,7 +55,7 @@ try:
         pg.goto("http://localhost:3101/"); pg.wait_for_selector("#gate:not([hidden])")
         pg.fill("#gateCode", "mestre"); pg.click("#gateGo"); pg.wait_for_selector("#inView:not([hidden])")
         pg.click("#ex1"); pg.click("#go"); pg.wait_for_selector("#resView .tile", timeout=15000)
-        check(pg.locator("text=Cobertura do gabarito").count() == 1, "formador vê o gabarito do Horizonte")
+        check(pg.locator("text=Cobertura da solução de referência").count() == 1, "formador vê a solução de referência do Horizonte")
         ctx.close()
         # B: sem controlo, telemóvel
         print("B. Sem controlo de acesso, telemóvel")
