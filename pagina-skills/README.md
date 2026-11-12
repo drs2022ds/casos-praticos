@@ -9,4 +9,4 @@ As chaves do formador não estão neste repositório.
 2. Em *Root Directory*, indicar `pagina-skills`.
 3. *Framework Preset*: Other. Sem *Build Command*. *Output Directory*: vazio.
 
-Antes de publicar, preencher os marcadores `[POR PREENCHER]` em `index.html` (dia da formação, ligação do artefacto, contactos).
+A página não tem marcadores por preencher.
