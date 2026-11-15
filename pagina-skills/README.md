@@ -10,3 +10,6 @@ As chaves do formador não estão neste repositório.
 3. *Framework Preset*: Other. Sem *Build Command*. *Output Directory*: vazio.
 
 A página não tem marcadores por preencher.
+
+## Material de apoio do Porto
+`porto/` contém a página «Material de Apoio · Porto» (`porto/index.html`) e os ficheiros dos exercícios das Sessões 1 e 2 (`porto/ficheiros/`, mais o zip com todos). Todos os documentos são fictícios.
